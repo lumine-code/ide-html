@@ -1,0 +1,130 @@
+{
+  "name": "ide-html full feature matrix",
+  "adapter": "ide-html",
+  "project": "fixtures/drive",
+  "file": "fixtures/drive/fixture.html",
+  "grammarScope": "text.html.basic",
+  "checks": [
+    {
+      "name": "diagnostics",
+      "method": "textDocument/diagnostic",
+      "expect": { "path": "items", "type": "array", "minLength": 2 }
+    },
+    {
+      "name": "completion",
+      "method": "textDocument/completion",
+      "position": [10, 9],
+      "params": { "context": { "triggerKind": 1 } },
+      "expect": { "path": "items", "type": "array", "minLength": 1 }
+    },
+    {
+      "name": "completion resolve",
+      "method": "completionItem/resolve",
+      "document": false,
+      "paramsFrom": { "$": { "check": "completion", "path": "items.0" } },
+      "expect": { "path": "label", "type": "string" }
+    },
+    {
+      "name": "hover",
+      "method": "textDocument/hover",
+      "position": [10, 2],
+      "expect": { "path": "contents.value", "matches": "section element" }
+    },
+    {
+      "name": "signature help",
+      "method": "textDocument/signatureHelp",
+      "position": [6, 30],
+      "expect": { "path": "signatures.*.label", "matches": "greet\\(" }
+    },
+    {
+      "name": "definition",
+      "method": "textDocument/definition",
+      "position": [6, 18],
+      "expect": { "path": "*.range.start.line", "includes": 5 }
+    },
+    {
+      "name": "references",
+      "method": "textDocument/references",
+      "position": [6, 18],
+      "params": { "context": { "includeDeclaration": true } },
+      "expect": { "type": "array", "minLength": 3 }
+    },
+    {
+      "name": "document symbols",
+      "method": "textDocument/documentSymbol",
+      "expect": { "path": "*.name", "includes": "section#target" }
+    },
+    {
+      "name": "document highlights",
+      "method": "textDocument/documentHighlight",
+      "position": [10, 2],
+      "expect": { "type": "array", "minLength": 2 }
+    },
+    {
+      "name": "document links",
+      "method": "textDocument/documentLink",
+      "expect": { "path": "*.target", "matches": "page\\.html$" }
+    },
+    {
+      "name": "document colors",
+      "method": "textDocument/documentColor",
+      "expect": { "type": "array", "minLength": 1 }
+    },
+    {
+      "name": "color presentations",
+      "method": "textDocument/colorPresentation",
+      "paramsFrom": {
+        "color": { "check": "document colors", "path": "0.color" },
+        "range": { "check": "document colors", "path": "0.range" }
+      },
+      "expect": { "path": "*.label", "includes": "#ff0000" }
+    },
+    {
+      "name": "folding ranges",
+      "method": "textDocument/foldingRange",
+      "expect": { "type": "array", "minLength": 1 }
+    },
+    {
+      "name": "selection ranges",
+      "method": "textDocument/selectionRange",
+      "params": { "positions": [{ "line": 10, "character": 30 }] },
+      "expect": { "path": "0.parent", "type": "object" }
+    },
+    {
+      "name": "linked editing ranges",
+      "method": "textDocument/linkedEditingRange",
+      "position": [10, 2],
+      "expect": { "path": "ranges", "type": "array", "minLength": 2 }
+    },
+    {
+      "name": "formatting",
+      "method": "textDocument/formatting",
+      "params": { "options": { "tabSize": 2, "insertSpaces": true } },
+      "expect": { "type": "array", "minLength": 1 }
+    },
+    {
+      "name": "range formatting",
+      "method": "textDocument/rangeFormatting",
+      "params": {
+        "range": {
+          "start": { "line": 1, "character": 0 },
+          "end": { "line": 13, "character": 7 }
+        },
+        "options": { "tabSize": 2, "insertSpaces": true }
+      },
+      "expect": { "type": "array", "minLength": 1 }
+    },
+    {
+      "name": "rename",
+      "method": "textDocument/rename",
+      "position": [10, 2],
+      "params": { "newName": "article" },
+      "expect": { "path": "changes", "type": "object", "minLength": 1 }
+    },
+    {
+      "name": "restart lifecycle",
+      "kind": "restart",
+      "expect": { "path": "current", "equals": "running" }
+    }
+  ]
+}

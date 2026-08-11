@@ -1,0 +1,253 @@
+{
+  "name": "ide-html",
+  "author": "lumine-code",
+  "description": "HTML language-server adapter.",
+  "repository": "https://github.com/lumine-code/ide-html",
+  "bugs": {
+    "url": "https://github.com/lumine-code/ide-html/issues"
+  },
+  "keywords": [
+    "language-server",
+    "lsp",
+    "markup",
+    "web",
+    "ejs",
+    "erb",
+    "mustache",
+    "intellisense"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "lumine": "^1.0.0"
+  },
+  "main": "./lib/main",
+  "files": [
+    "lib",
+    "spec"
+  ],
+  "scripts": {
+    "test": "lumine --test spec",
+    "lint": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "consumedServices": {
+    "ide-client": {
+      "versions": {
+        "^1.0.0": "consumeIdeClient"
+      }
+    }
+  },
+  "dependencies": {
+    "vscode-langservers-extracted": "4.10.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-n": "^18.2.2",
+    "globals": "^17.9.0",
+    "prettier": "^3.9.6"
+  },
+  "configSchema": {
+    "serverPath": {
+      "title": "Server Path",
+      "description": "Absolute path to a `vscode-html-language-server` executable. Leave empty to use the bundled server.",
+      "type": "string",
+      "default": ""
+    },
+    "features": {
+      "title": "Features",
+      "description": "Which parts of the HTML server the editor uses. Turning one off hands it to the next server serving the same file.",
+      "type": "object",
+      "properties": {
+        "autocomplete": {
+          "title": "Autocomplete",
+          "description": "Offer elements, attributes, values and closing tags.",
+          "type": "boolean",
+          "default": true
+        },
+        "hover": {
+          "title": "Hover",
+          "description": "Show element and attribute documentation on hover.",
+          "type": "boolean",
+          "default": true
+        },
+        "signature": {
+          "title": "Signature Help",
+          "description": "Show signatures for embedded script calls.",
+          "type": "boolean",
+          "default": true
+        },
+        "definition": {
+          "title": "Go To Definition",
+          "description": "Resolve links and references in the document.",
+          "type": "boolean",
+          "default": true
+        },
+        "references": {
+          "title": "Find References",
+          "description": "List matching references in the document.",
+          "type": "boolean",
+          "default": true
+        },
+        "symbols": {
+          "title": "Symbols",
+          "description": "Serve document symbols to go-to-symbol.",
+          "type": "boolean",
+          "default": true
+        },
+        "outline": {
+          "title": "Outline",
+          "description": "Fill the outline panel with the document's element structure.",
+          "type": "boolean",
+          "default": true
+        },
+        "format": {
+          "title": "Format",
+          "description": "Format whole documents and selected ranges.",
+          "type": "boolean",
+          "default": true
+        },
+        "rename": {
+          "title": "Rename",
+          "description": "Rename matching opening and closing tags together.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "html": {
+      "title": "HTML",
+      "description": "Completion, hover, validation and formatting options sent to the language server.",
+      "type": "object",
+      "properties": {
+        "attributeDefaultValue": {
+          "title": "Attribute Value Style",
+          "description": "Value inserted when an attribute completion needs a value.",
+          "type": "string",
+          "enum": [
+            "doublequotes",
+            "singlequotes",
+            "empty"
+          ],
+          "default": "doublequotes"
+        },
+        "suggestHtml5": {
+          "title": "HTML5 Suggestions",
+          "description": "Offer the standard HTML5 elements, attributes and values.",
+          "type": "boolean",
+          "default": true
+        },
+        "hideEndTagSuggestions": {
+          "title": "Hide End Tag Suggestions",
+          "description": "Do not offer closing tags in the completion list.",
+          "type": "boolean",
+          "default": false
+        },
+        "validateScripts": {
+          "title": "Validate Embedded Scripts",
+          "description": "Validate JavaScript embedded in HTML documents.",
+          "type": "boolean",
+          "default": true
+        },
+        "validateStyles": {
+          "title": "Validate Embedded Styles",
+          "description": "Validate CSS embedded in HTML documents.",
+          "type": "boolean",
+          "default": true
+        },
+        "hoverDocumentation": {
+          "title": "Hover Documentation",
+          "description": "Include prose documentation in hover results.",
+          "type": "boolean",
+          "default": true
+        },
+        "hoverReferences": {
+          "title": "Hover References",
+          "description": "Include links to reference documentation in hover results.",
+          "type": "boolean",
+          "default": true
+        },
+        "format": {
+          "title": "Formatting",
+          "description": "How the built-in formatter lays out HTML documents.",
+          "type": "object",
+          "properties": {
+            "wrapLineLength": {
+              "title": "Wrap Line Length",
+              "description": "Maximum line length before content is wrapped. Set to 0 to disable wrapping.",
+              "type": "integer",
+              "minimum": 0,
+              "default": 120
+            },
+            "unformatted": {
+              "title": "Unformatted Elements",
+              "description": "Comma-separated element names whose tags are not reformatted.",
+              "type": "string",
+              "default": "wbr"
+            },
+            "contentUnformatted": {
+              "title": "Unformatted Content",
+              "description": "Comma-separated element names whose inner content is not reformatted.",
+              "type": "string",
+              "default": "pre,code,textarea"
+            },
+            "indentInnerHtml": {
+              "title": "Indent Inner HTML",
+              "description": "Indent the contents of `head` and `body` elements.",
+              "type": "boolean",
+              "default": false
+            },
+            "preserveNewLines": {
+              "title": "Preserve New Lines",
+              "description": "Keep existing line breaks between elements.",
+              "type": "boolean",
+              "default": true
+            },
+            "indentHandlebars": {
+              "title": "Indent Handlebars",
+              "description": "Indent Handlebars and Mustache blocks.",
+              "type": "boolean",
+              "default": false
+            },
+            "extraLiners": {
+              "title": "Extra Line Elements",
+              "description": "Comma-separated tags before which an extra blank line is inserted.",
+              "type": "string",
+              "default": "head, body, /html"
+            },
+            "wrapAttributes": {
+              "title": "Wrap Attributes",
+              "description": "How attributes are wrapped across lines.",
+              "type": "string",
+              "enum": [
+                "auto",
+                "force",
+                "force-aligned",
+                "force-expand-multiline",
+                "aligned-multiple",
+                "preserve",
+                "preserve-aligned"
+              ],
+              "default": "auto"
+            },
+            "templating": {
+              "title": "Templating",
+              "description": "Preserve templating syntax while formatting.",
+              "type": "boolean",
+              "default": false
+            },
+            "unformattedContentDelimiter": {
+              "title": "Unformatted Content Delimiter",
+              "description": "Text delimiter marking content the formatter must leave unchanged.",
+              "type": "string",
+              "default": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

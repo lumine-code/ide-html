@@ -51,7 +51,7 @@ describe("ide-html bundled server", () => {
       "<!doctype html>",
       "<html>",
       "<body>",
-      "<style>.card { color: ; }</style>",
+      "<style>.card { background: #ff0000; color: ; }</style>",
       "<script>",
       "function greet(name, punctuation) { return name + punctuation; }",
       'const message = greet("world", "!");',
@@ -59,6 +59,7 @@ describe("ide-html bundled server", () => {
       "const broken = ;",
       "</script>",
       '<section id="target"><span>hello</span></section>',
+      '<a href="./page.html">next</a>',
       "</body>",
       "</html>",
       "",
@@ -78,9 +79,17 @@ describe("ide-html bundled server", () => {
     expect(capabilities.documentFormattingProvider).toBe(true);
     expect(capabilities.documentRangeFormattingProvider).toBe(true);
     expect(capabilities.renameProvider).toBe(true);
+    expect(capabilities.documentHighlightProvider).toBe(true);
+    expect(capabilities.documentLinkProvider).toBeDefined();
+    expect(capabilities.colorProvider).toBeDefined();
+    expect(capabilities.foldingRangeProvider).toBe(true);
+    expect(capabilities.selectionRangeProvider).toBe(true);
+    expect(capabilities.linkedEditingRangeProvider).toBe(true);
 
     const completion = await client.request("textDocument/completion", positionParams(uri, 10, 9));
     expect(completion.items.length).toBeGreaterThan(0);
+    const resolved = await client.request("completionItem/resolve", completion.items[0]);
+    expect(resolved.label).toBe(completion.items[0].label);
 
     const hover = await client.request("textDocument/hover", positionParams(uri, 10, 2));
     expect(hover.contents.value).toContain("section element");
@@ -107,6 +116,45 @@ describe("ide-html bundled server", () => {
     expect(symbols.some(({ name }) => name === "section#target")).toBe(true);
     expect(symbols.some(({ name }) => name === "greet")).toBe(true);
 
+    const highlights = await client.request(
+      "textDocument/documentHighlight",
+      positionParams(uri, 10, 2),
+    );
+    expect(highlights.length).toBe(2);
+
+    const links = await client.request("textDocument/documentLink", {
+      textDocument: { uri },
+    });
+    expect(links[0].target.toLowerCase()).toContain("page.html");
+
+    const colors = await client.request("textDocument/documentColor", {
+      textDocument: { uri },
+    });
+    expect(colors).toHaveSize(1);
+    const presentations = await client.request("textDocument/colorPresentation", {
+      textDocument: { uri },
+      color: colors[0].color,
+      range: colors[0].range,
+    });
+    expect(presentations.map(({ label }) => label)).toContain("#ff0000");
+
+    const folding = await client.request("textDocument/foldingRange", {
+      textDocument: { uri },
+    });
+    expect(folding.length).toBeGreaterThan(0);
+
+    const selection = await client.request("textDocument/selectionRange", {
+      textDocument: { uri },
+      positions: [position(10, 30)],
+    });
+    expect(selection[0].parent).toBeDefined();
+
+    const linked = await client.request(
+      "textDocument/linkedEditingRange",
+      positionParams(uri, 10, 2),
+    );
+    expect(linked.ranges).toHaveSize(2);
+
     const edits = await client.request("textDocument/formatting", {
       textDocument: { uri },
       options: { tabSize: 2, insertSpaces: true },
@@ -115,7 +163,7 @@ describe("ide-html bundled server", () => {
 
     const rangeEdits = await client.request("textDocument/rangeFormatting", {
       textDocument: { uri },
-      range: { start: position(1, 0), end: position(12, 7) },
+      range: { start: position(1, 0), end: position(13, 7) },
       options: { tabSize: 2, insertSpaces: true },
     });
     expect(rangeEdits.length).toBeGreaterThan(0);

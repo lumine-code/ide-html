@@ -48,7 +48,8 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-n": "^18.2.2",
     "globals": "^17.9.0",
-    "prettier": "^3.9.6"
+    "prettier": "^3.9.6",
+    "vscode-jsonrpc": "^9.0.1"
   },
   "configSchema": {
     "serverPath": {
@@ -62,6 +63,12 @@
       "description": "Which parts of the HTML server the editor uses. Turning one off hands it to the next server serving the same file.",
       "type": "object",
       "properties": {
+        "diagnostics": {
+          "title": "Diagnostics",
+          "description": "Report errors from embedded styles and scripts in the linter.",
+          "type": "boolean",
+          "default": true
+        },
         "autocomplete": {
           "title": "Autocomplete",
           "description": "Offer elements, attributes, values and closing tags.",

@@ -2,7 +2,7 @@
 
 HTML language-server adapter.
 
-Registers the HTML server from [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted) with the bundled `ide-client` package, providing completion, hover, navigation, symbols, and formatting for HTML and template documents.
+Registers the HTML server from [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted) with the bundled `ide-client` package, providing pull diagnostics, completion, hover, navigation, symbols, and formatting for HTML and template documents.
 
 ## Features
 

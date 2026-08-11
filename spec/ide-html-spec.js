@@ -81,12 +81,30 @@ describe("ide-html adapter", () => {
     expect(html.hover.references).toBe(false);
     expect(html.format.wrapAttributes).toBe("force-aligned");
     expect(html.format.indentInnerHtml).toBe(true);
-    expect(adapter.getWorkspaceConfiguration("css")).toBeUndefined();
+    expect(adapter.getWorkspaceConfiguration("css")).toEqual({});
+    expect(adapter.getWorkspaceConfiguration("javascript")).toEqual({});
+    expect(adapter.getWorkspaceConfiguration("js/ts")).toEqual({
+      implicitProjectConfig: {},
+    });
+    expect(adapter.getWorkspaceConfiguration("unknown")).toBeUndefined();
+  });
+
+  it("turns off both embedded validators with the diagnostics feature", () => {
+    expect(adapter.getWorkspaceConfiguration("html").validate).toEqual({
+      scripts: true,
+      styles: true,
+    });
+    lumine.config.set("ide-html.features.diagnostics", false);
+    expect(adapter.getWorkspaceConfiguration("html").validate).toEqual({
+      scripts: false,
+      styles: false,
+    });
   });
 
   it("offers switches for exactly the capabilities the server advertises", () => {
     const { configSchema } = require("../package.json");
     expect(Object.keys(configSchema.features.properties)).toEqual([
+      "diagnostics",
       "autocomplete",
       "hover",
       "signature",

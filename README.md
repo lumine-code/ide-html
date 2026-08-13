@@ -7,6 +7,7 @@ Registers the HTML server from [vscode-langservers-extracted](https://github.com
 ## Features
 
 - **Bundled server**: ships an exact vscode-langservers-extracted version, with an optional custom executable path.
+- **Managed upgrade**: installs a newer server from npm when you want one, and removing it returns to the bundled copy.
 - **HTML intelligence**: completes standard elements, attributes, values, and closing tags.
 - **Template grammars**: serves HTML, EJS, ERB, and Mustache documents under the HTML language identifier.
 - **Embedded languages**: understands CSS and JavaScript embedded in HTML documents.

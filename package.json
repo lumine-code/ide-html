@@ -61,65 +61,76 @@
     "features": {
       "title": "Features",
       "description": "Which parts of the HTML server the editor uses. Turning one off hands it to the next server serving the same file.",
+      "scopeResolution": "grammar",
       "type": "object",
       "properties": {
         "diagnostics": {
           "title": "Diagnostics",
           "description": "Report errors from embedded styles and scripts in the linter.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "autocomplete": {
           "title": "Autocomplete",
           "description": "Offer elements, attributes, values and closing tags.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "hover": {
           "title": "Hover",
           "description": "Show element and attribute documentation on hover.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "signature": {
           "title": "Signature Help",
           "description": "Show signatures for embedded script calls.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "definition": {
           "title": "Go To Definition",
           "description": "Resolve links and references in the document.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "references": {
           "title": "Find References",
           "description": "List matching references in the document.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "symbols": {
           "title": "Symbols",
           "description": "Serve document symbols to go-to-symbol.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "outline": {
           "title": "Outline",
           "description": "Fill the outline panel with the document's element structure.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "format": {
           "title": "Format",
           "description": "Format whole documents and selected ranges.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         },
         "rename": {
           "title": "Rename",
           "description": "Rename matching opening and closing tags together.",
+          "scopeResolution": "grammar",
           "type": "boolean",
           "default": true
         }

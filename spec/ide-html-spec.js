@@ -128,7 +128,6 @@ describe("ide-html adapter", () => {
       "definition",
       "references",
       "symbols",
-      "outline",
       "format",
       "rename",
     ]);
@@ -144,7 +143,6 @@ describe("ide-html feature contracts", () => {
     "definition",
     "references",
     "symbols",
-    "outline",
     "format",
     "rename",
   ];

@@ -72,6 +72,7 @@ describe("ide-html adapter", () => {
     ]);
     expect(adapter.languageIdForScope("text.html.erb")).toBe("html");
     expect(adapter.settingsKeyPaths).toEqual(["ide-html"]);
+    expect(adapter.restartKeyPaths).toEqual(["ide-html.serverPath", "ide-html.features.format"]);
     const launch = await adapter.resolveServer({ rootPath: __dirname });
     expect(launch.cwd).toBe(__dirname);
     expect(launch.transport).toBe("stdio");

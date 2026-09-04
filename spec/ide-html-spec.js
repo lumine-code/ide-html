@@ -1,4 +1,7 @@
 const fs = require("fs");
+const os = require("os");
+const path = require("path");
+const { pathToFileURL } = require("url");
 const { resolveServer, managedServer } = require("../lib/server");
 const main = require("../lib/main");
 
@@ -72,32 +75,44 @@ describe("ide-html adapter", () => {
     ]);
     expect(adapter.languageIdForScope("text.html.erb")).toBe("html");
     expect(adapter.settingsKeyPaths).toEqual(["ide-html"]);
-    expect(adapter.restartKeyPaths).toEqual(["ide-html.serverPath", "ide-html.features.format"]);
+    expect(adapter.restartKeyPaths).toEqual(["ide-html.serverPath", "ide-html.customData"]);
     const launch = await adapter.resolveServer({ rootPath: __dirname });
     expect(launch.cwd).toBe(__dirname);
     expect(launch.transport).toBe("stdio");
   });
 
-  it("enables embedded languages and the formatter during initialization", () => {
-    expect(adapter.getInitializationOptions()).toEqual({
+  it("enables embedded languages, custom data, and the formatter during initialization", () => {
+    lumine.config.set("ide-html.customData", ["config/html-data.json"]);
+    expect(adapter.getInitializationOptions({ rootPath: __dirname })).toEqual({
       provideFormatter: true,
       embeddedLanguages: { css: true, javascript: true },
+      dataPaths: [pathToFileURL(path.join(__dirname, "config", "html-data.json")).href],
     });
     lumine.config.set("ide-html.features.format", false);
-    expect(adapter.getInitializationOptions().provideFormatter).toBe(false);
-    expect(adapter.getSettings().html.format.enable).toBe(false);
+    expect(adapter.getInitializationOptions().provideFormatter).toBe(true);
+    expect(adapter.getSettings().html.format.enable).toBe(true);
   });
 
   it("transcribes completion, hover and formatter settings", () => {
     lumine.config.set("ide-html.html.attributeDefaultValue", "singlequotes");
     lumine.config.set("ide-html.html.hoverReferences", false);
     lumine.config.set("ide-html.html.format.wrapAttributes", "force-aligned");
+    lumine.config.set("ide-html.html.format.wrapAttributesIndentSize", 6);
+    lumine.config.set("ide-html.html.format.maxPreserveNewLines", 2);
+    lumine.config.set("ide-html.html.format.endWithNewline", true);
+    lumine.config.set("ide-html.html.format.indentScripts", "separate");
+    lumine.config.set("ide-html.html.format.templating", ["erb", "handlebars"]);
     lumine.config.set("ide-html.html.format.indentInnerHtml", true);
 
     const html = adapter.getWorkspaceConfiguration("html");
     expect(html.completion.attributeDefaultValue).toBe("singlequotes");
     expect(html.hover.references).toBe(false);
     expect(html.format.wrapAttributes).toBe("force-aligned");
+    expect(html.format.wrapAttributesIndentSize).toBe(6);
+    expect(html.format.maxPreserveNewLines).toBe(2);
+    expect(html.format.endWithNewline).toBe(true);
+    expect(html.format.indentScripts).toBe("separate");
+    expect(html.format.templating).toEqual(["erb", "handlebars"]);
     expect(html.format.indentInnerHtml).toBe(true);
     expect(adapter.getWorkspaceConfiguration("css")).toEqual({});
     expect(adapter.getWorkspaceConfiguration("javascript")).toEqual({});
@@ -107,15 +122,41 @@ describe("ide-html adapter", () => {
     expect(adapter.getWorkspaceConfiguration("unknown")).toBeUndefined();
   });
 
-  it("turns off both embedded validators with the diagnostics feature", () => {
+  it("serves only configured HTML custom-data files", async () => {
+    const rootPath = fs.mkdtempSync(path.join(os.tmpdir(), "ide-html-data-"));
+    const dataPath = path.join(rootPath, "html-data.json");
+    fs.writeFileSync(dataPath, '{"version":1,"tags":[]}');
+    lumine.config.set("ide-html.customData", ["html-data.json"]);
+    const uri = adapter.getInitializationOptions({ rootPath }).dataPaths[0];
+
+    const session = { rootPath };
+    await expectAsync(
+      adapter.handleServerRequest("html/customDataContent", [uri], { session }),
+    ).toBeResolvedTo('{"version":1,"tags":[]}');
+    await expectAsync(
+      adapter.handleServerRequest(
+        "html/customDataContent",
+        pathToFileURL(path.join(rootPath, "secret.json")).href,
+        { session },
+      ),
+    ).toBeRejectedWithError(/unconfigured/);
+    await expectAsync(
+      adapter.handleServerRequest("html/customDataContent", uri, {
+        session: { rootPath: path.join(rootPath, "other-project") },
+      }),
+    ).toBeRejectedWithError(/unconfigured/);
+    fs.rmSync(rootPath, { recursive: true, force: true });
+  });
+
+  it("leaves server validators available for grammar-scoped feature overrides", () => {
     expect(adapter.getWorkspaceConfiguration("html").validate).toEqual({
       scripts: true,
       styles: true,
     });
     lumine.config.set("ide-html.features.diagnostics", false);
     expect(adapter.getWorkspaceConfiguration("html").validate).toEqual({
-      scripts: false,
-      styles: false,
+      scripts: true,
+      styles: true,
     });
   });
 

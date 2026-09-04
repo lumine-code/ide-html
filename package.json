@@ -58,6 +58,15 @@
       "type": "string",
       "default": ""
     },
+    "customData": {
+      "title": "Custom Data",
+      "description": "HTML custom-data files that describe additional elements, attributes and values. Relative paths are resolved from the project root.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
     "features": {
       "title": "Features",
       "description": "Which parts of the HTML server the editor uses. Turning one off hands it to the next server serving the same file.",
@@ -217,9 +226,25 @@
               "type": "boolean",
               "default": true
             },
+            "maxPreserveNewLines": {
+              "title": "Maximum Preserved New Lines",
+              "description": "Maximum consecutive existing line breaks to preserve. Leave unset for no limit.",
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "default": null
+            },
             "indentHandlebars": {
               "title": "Indent Handlebars",
               "description": "Indent Handlebars and Mustache blocks.",
+              "type": "boolean",
+              "default": false
+            },
+            "endWithNewline": {
+              "title": "Final Newline",
+              "description": "End a fully formatted document with a newline.",
               "type": "boolean",
               "default": false
             },
@@ -244,10 +269,47 @@
               ],
               "default": "auto"
             },
+            "wrapAttributesIndentSize": {
+              "title": "Wrapped Attribute Indent",
+              "description": "Number of spaces used to indent wrapped attributes. Leave unset to follow the document indentation.",
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "default": null
+            },
+            "indentScripts": {
+              "title": "Script Indentation",
+              "description": "How embedded script blocks are indented.",
+              "type": "string",
+              "enum": [
+                "keep",
+                "separate",
+                "normal"
+              ],
+              "default": "normal"
+            },
             "templating": {
               "title": "Templating",
-              "description": "Preserve templating syntax while formatting.",
-              "type": "boolean",
+              "description": "Preserve every templating syntax, disable templating support, or list the syntaxes to preserve.",
+              "type": [
+                "boolean",
+                "array"
+              ],
+              "items": {
+                "type": "string",
+                "enum": [
+                  "auto",
+                  "none",
+                  "angular",
+                  "django",
+                  "erb",
+                  "handlebars",
+                  "php",
+                  "smarty"
+                ]
+              },
               "default": false
             },
             "unformattedContentDelimiter": {

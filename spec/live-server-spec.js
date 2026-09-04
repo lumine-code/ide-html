@@ -195,4 +195,54 @@ describe("ide-html bundled server", () => {
     });
     expect(closed.items).toEqual([]);
   });
+
+  it("completes project-defined HTML custom data", async () => {
+    fs.writeFileSync(
+      path.join(rootPath, "html-data.json"),
+      JSON.stringify({
+        version: 1,
+        tags: [{ name: "custom-panel", description: "Project panel element." }],
+      }),
+    );
+    lumine.config.set("ide-html.customData", ["html-data.json"]);
+    spyOn(adapter, "handleServerRequest").and.callThrough();
+    const filePath = path.join(rootPath, "custom.html");
+    const source = "<custom-";
+    fs.writeFileSync(filePath, source);
+    const uri = fileUri(filePath);
+    await client.start();
+    expect(adapter.handleServerRequest).toHaveBeenCalled();
+    client.open(uri, "html", source);
+
+    const completion = await client.waitFor(async () => {
+      const result = await client.request("textDocument/completion", positionParams(uri, 0, 8));
+      return result.items.some(({ label }) => label === "custom-panel") ? result : null;
+    }, "HTML custom data");
+    expect(completion.items.map(({ label }) => label)).toContain("custom-panel");
+  });
+
+  it("keeps EJS, ERB, and Mustache syntax live under the HTML language ID", async () => {
+    await client.start();
+    const templates = [
+      ["template.ejs", "text.html.ejs", "<div><%= user.name %></div>\n<sec"],
+      ["template.erb", "text.html.erb", "<div><%= user.name %></div>\n<sec"],
+      ["template.mustache", "text.html.mustache", "<div>{{user.name}}</div>\n<sec"],
+    ];
+
+    for (const [name, scope, source] of templates) {
+      expect(adapter.languageIdForScope(scope)).toBe("html");
+      const filePath = path.join(rootPath, name);
+      fs.writeFileSync(filePath, source);
+      const uri = fileUri(filePath);
+      client.open(uri, "html", source);
+      const completion = await client.request("textDocument/completion", positionParams(uri, 1, 4));
+      expect(completion.items.map(({ label }) => label)).toContain("section");
+      const edits = await client.request("textDocument/formatting", {
+        textDocument: { uri },
+        options: { tabSize: 2, insertSpaces: true },
+      });
+      expect(edits.map(({ newText }) => newText).join("\n")).toMatch(/user\.name/);
+      client.closeDocument(uri);
+    }
+  });
 });

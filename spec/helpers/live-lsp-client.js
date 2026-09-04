@@ -133,6 +133,9 @@ class LiveLspClient {
       this.diagnosticRefreshes = (this.diagnosticRefreshes || 0) + 1;
       return null;
     });
+    this.connection.onRequest((method, params) =>
+      this.adapter.handleServerRequest?.(method, params, { session: this }),
+    );
     this.connection.listen();
 
     const rootUri = pathToFileURL(this.rootPath).href;

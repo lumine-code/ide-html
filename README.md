@@ -18,7 +18,9 @@ Registers the HTML server from [vscode-langservers-extracted](https://github.com
 
 ## Installation
 
-Install `ide-client` first. Then install `ide-html` from the Install pane of the Lumine settings, or run `lumine --install lumine-code/ide-html`.
+To install `ide-html` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/ide-html`.
+
+Install `ide-client` first.
 
 ## Services
 

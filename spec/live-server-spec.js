@@ -1,11 +1,11 @@
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
-const main = require("../lib/main");
 const { LiveLspClient, fileUri, position, positionParams } = require("./helpers/live-lsp-client");
 
 const registerAdapter = () => {
   let adapter;
+  const main = lumine.packages.getActivePackage("ide-html").mainModule;
   const disposable = main.consumeIdeClient({
     registerAdapter(registered) {
       adapter = registered;
@@ -201,7 +201,13 @@ describe("ide-html bundled server", () => {
       path.join(rootPath, "html-data.json"),
       JSON.stringify({
         version: 1,
-        tags: [{ name: "custom-panel", description: "Project panel element." }],
+        tags: [
+          {
+            name: "custom-panel",
+            description: "Project panel element.",
+            attributes: [{ name: "mode", values: [{ name: "compact" }, { name: "expanded" }] }],
+          },
+        ],
       }),
     );
     lumine.config.set("ide-html.customData", ["html-data.json"]);
@@ -219,6 +225,98 @@ describe("ide-html bundled server", () => {
       return result.items.some(({ label }) => label === "custom-panel") ? result : null;
     }, "HTML custom data");
     expect(completion.items.map(({ label }) => label)).toContain("custom-panel");
+    expect(completion.items.map(({ label }) => label)).toContain("svg");
+    expect(completion.items.map(({ label }) => label)).toContain("div");
+
+    const values = '<custom-panel mode="">';
+    client.change(uri, values);
+    const modes = await client.request(
+      "textDocument/completion",
+      positionParams(uri, 0, values.indexOf('"') + 1),
+    );
+    expect(modes.items.map(({ label }) => label)).toEqual(["compact", "expanded"]);
+  });
+
+  it("supplements standard HTML with foreign markup and current attribute values", async () => {
+    await client.start();
+    const uri = fileUri(path.join(rootPath, "markup.html"));
+    client.open(uri, "html", "<");
+    const tags = await client.waitFor(async () => {
+      const result = await client.request("textDocument/completion", positionParams(uri, 0, 1));
+      return result.items.some(({ label }) => label === "svg") ? result : null;
+    }, "bundled HTML data");
+    const names = tags.items.map(({ label }) => label);
+    for (const name of ["div", "svg", "path", "rect", "math", "mrow", "mfrac"])
+      expect(names).withContext(name).toContain(name);
+    expect(names).not.toContain("marquee");
+
+    const cases = [
+      ['<div contenteditable="|">', ["true", "false", "plaintext-only"]],
+      ['<div autocapitalize="|">', ["none", "sentences", "words", "characters"]],
+      ['<html lang="|">', ["en", "pl", "de", "fr", "zh"]],
+      ['<link rel="|">', ["stylesheet", "preload", "modulepreload", "icon"]],
+      ['<a rel="|">', ["noopener", "noreferrer", "nofollow"]],
+      ["<div |>", ["oncopy", "onpaste", "onwheel", "ontoggle", "class", "popover"]],
+      ["<svg |>", ["viewBox", "width", "height"]],
+      ["<svg><path |></path></svg>", ["d", "fill", "stroke-width"]],
+      ['<math display="|">', ["inline", "block"]],
+      ['<math><mo form="|">+</mo></math>', ["prefix", "infix", "postfix"]],
+      ['<math><mo stretchy="|">(</mo></math>', ["true", "false"]],
+      ['<button type="|">', ["button", "submit", "reset"]],
+    ];
+    for (const [source, expected] of cases) {
+      const character = source.indexOf("|");
+      client.change(uri, source.replace("|", ""));
+      const result = await client.request(
+        "textDocument/completion",
+        positionParams(uri, 0, character),
+      );
+      const labels = result.items.map(({ label }) => label);
+      for (const label of expected)
+        expect(labels).withContext(`${source}: ${label}`).toContain(label);
+      expect(labels).withContext(source).not.toContain("innerText");
+      expect(labels).withContext(source).not.toContain("ownerDocument");
+    }
+
+    client.change(uri, '<div lang="en"></div>');
+    const hover = await client.request("textDocument/hover", positionParams(uri, 0, 6));
+    expect(hover.contents.value).toContain("lang");
+  });
+
+  it("completes, renames, and formats HTML at an untitled URI", async () => {
+    await client.start();
+    const uri = "untitled:lumine-html-integration";
+    client.open(uri, "html", "<di");
+    const tags = await client.waitFor(async () => {
+      const result = await client.request("textDocument/completion", positionParams(uri, 0, 3));
+      return result.items.some(({ label }) => label === "svg") ? result : null;
+    }, "untitled HTML completion");
+    expect(tags.items.map(({ label }) => label)).toContain("div");
+
+    client.change(uri, "<input ty>");
+    const attributes = await client.request("textDocument/completion", positionParams(uri, 0, 9));
+    const type = attributes.items.find(({ label }) => label === "type");
+    expect(type.insertTextFormat).toBe(2);
+    expect(type.textEdit.newText).toBe('type="$1"');
+
+    client.change(uri, '<input type="te">', 3);
+    const values = await client.request("textDocument/completion", positionParams(uri, 0, 15));
+    expect(values.items.map(({ label }) => label)).toContain("text");
+
+    client.change(uri, "<div><span>text</span></div>", 4);
+    const rename = await client.request("textDocument/rename", {
+      ...positionParams(uri, 0, 2),
+      newName: "section",
+    });
+    expect(Object.keys(rename.changes)).toEqual([uri]);
+    expect(rename.changes[uri].map(({ newText }) => newText)).toEqual(["section", "section"]);
+
+    const formatting = await client.request("textDocument/formatting", {
+      textDocument: { uri },
+      options: { tabSize: 2, insertSpaces: true },
+    });
+    expect(formatting.length).toBeGreaterThan(0);
+    expect(formatting.map(({ newText }) => newText).join("")).toContain("<span>text</span>");
   });
 
   it("keeps EJS, ERB, and Mustache syntax live under the HTML language ID", async () => {

@@ -21,6 +21,12 @@
   "engines": {
     "lumine": "^1.0.0"
   },
+  "specPackages": [
+    "language-html",
+    "language-php",
+    "language-blade",
+    "language-gfm"
+  ],
   "main": "./lib/main",
   "files": [
     "lib",

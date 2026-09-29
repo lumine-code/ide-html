@@ -1,0 +1,3527 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "svg",
+      "description": "SVG svg element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "viewBox"
+        },
+        {
+          "name": "preserveAspectRatio"
+        },
+        {
+          "name": "xmlns"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-svg"
+        }
+      ]
+    },
+    {
+      "name": "g",
+      "description": "SVG g element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-g"
+        }
+      ]
+    },
+    {
+      "name": "defs",
+      "description": "SVG defs element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-defs"
+        }
+      ]
+    },
+    {
+      "name": "symbol",
+      "description": "SVG symbol element.",
+      "attributes": [
+        {
+          "name": "viewBox"
+        },
+        {
+          "name": "preserveAspectRatio"
+        },
+        {
+          "name": "refX"
+        },
+        {
+          "name": "refY"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-symbol"
+        }
+      ]
+    },
+    {
+      "name": "use",
+      "description": "SVG use element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "href"
+        },
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-use"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "description": "SVG switch element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-switch"
+        }
+      ]
+    },
+    {
+      "name": "desc",
+      "description": "SVG desc element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-desc"
+        }
+      ]
+    },
+    {
+      "name": "metadata",
+      "description": "SVG metadata element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/struct.html#elementdef-metadata"
+        }
+      ]
+    },
+    {
+      "name": "path",
+      "description": "SVG path element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "d"
+        },
+        {
+          "name": "pathLength"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/paths.html#elementdef-path"
+        }
+      ]
+    },
+    {
+      "name": "rect",
+      "description": "SVG rect element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "rx"
+        },
+        {
+          "name": "ry"
+        },
+        {
+          "name": "pathLength"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/shapes.html#elementdef-rect"
+        }
+      ]
+    },
+    {
+      "name": "circle",
+      "description": "SVG circle element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "cx"
+        },
+        {
+          "name": "cy"
+        },
+        {
+          "name": "r"
+        },
+        {
+          "name": "pathLength"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/shapes.html#elementdef-circle"
+        }
+      ]
+    },
+    {
+      "name": "ellipse",
+      "description": "SVG ellipse element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "cx"
+        },
+        {
+          "name": "cy"
+        },
+        {
+          "name": "rx"
+        },
+        {
+          "name": "ry"
+        },
+        {
+          "name": "pathLength"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/shapes.html#elementdef-ellipse"
+        }
+      ]
+    },
+    {
+      "name": "line",
+      "description": "SVG line element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "x1"
+        },
+        {
+          "name": "y1"
+        },
+        {
+          "name": "x2"
+        },
+        {
+          "name": "y2"
+        },
+        {
+          "name": "pathLength"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/shapes.html#elementdef-line"
+        }
+      ]
+    },
+    {
+      "name": "polyline",
+      "description": "SVG polyline element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "points"
+        },
+        {
+          "name": "pathLength"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/shapes.html#elementdef-polyline"
+        }
+      ]
+    },
+    {
+      "name": "polygon",
+      "description": "SVG polygon element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "points"
+        },
+        {
+          "name": "pathLength"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/shapes.html#elementdef-polygon"
+        }
+      ]
+    },
+    {
+      "name": "text",
+      "description": "SVG text element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "dx"
+        },
+        {
+          "name": "dy"
+        },
+        {
+          "name": "rotate"
+        },
+        {
+          "name": "textLength"
+        },
+        {
+          "name": "lengthAdjust"
+        },
+        {
+          "name": "text-anchor"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/text.html#elementdef-text"
+        }
+      ]
+    },
+    {
+      "name": "tspan",
+      "description": "SVG tspan element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "dx"
+        },
+        {
+          "name": "dy"
+        },
+        {
+          "name": "rotate"
+        },
+        {
+          "name": "textLength"
+        },
+        {
+          "name": "lengthAdjust"
+        },
+        {
+          "name": "text-anchor"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/text.html#elementdef-tspan"
+        }
+      ]
+    },
+    {
+      "name": "textPath",
+      "description": "SVG textPath element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "href"
+        },
+        {
+          "name": "startOffset"
+        },
+        {
+          "name": "method"
+        },
+        {
+          "name": "spacing"
+        },
+        {
+          "name": "side"
+        },
+        {
+          "name": "textLength"
+        },
+        {
+          "name": "lengthAdjust"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/text.html#elementdef-textPath"
+        }
+      ]
+    },
+    {
+      "name": "image",
+      "description": "SVG image element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "href"
+        },
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "preserveAspectRatio"
+        },
+        {
+          "name": "crossorigin"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/embedded.html#elementdef-image"
+        }
+      ]
+    },
+    {
+      "name": "foreignObject",
+      "description": "SVG foreignObject element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/embedded.html#elementdef-foreignObject"
+        }
+      ]
+    },
+    {
+      "name": "marker",
+      "description": "SVG marker element.",
+      "attributes": [
+        {
+          "name": "refX"
+        },
+        {
+          "name": "refY"
+        },
+        {
+          "name": "markerWidth"
+        },
+        {
+          "name": "markerHeight"
+        },
+        {
+          "name": "markerUnits"
+        },
+        {
+          "name": "orient"
+        },
+        {
+          "name": "viewBox"
+        },
+        {
+          "name": "preserveAspectRatio"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/painting.html#elementdef-marker"
+        }
+      ]
+    },
+    {
+      "name": "linearGradient",
+      "description": "SVG linearGradient element.",
+      "attributes": [
+        {
+          "name": "x1"
+        },
+        {
+          "name": "y1"
+        },
+        {
+          "name": "x2"
+        },
+        {
+          "name": "y2"
+        },
+        {
+          "name": "gradientUnits"
+        },
+        {
+          "name": "gradientTransform"
+        },
+        {
+          "name": "spreadMethod"
+        },
+        {
+          "name": "href"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/pservers.html#elementdef-linearGradient"
+        }
+      ]
+    },
+    {
+      "name": "radialGradient",
+      "description": "SVG radialGradient element.",
+      "attributes": [
+        {
+          "name": "cx"
+        },
+        {
+          "name": "cy"
+        },
+        {
+          "name": "r"
+        },
+        {
+          "name": "fx"
+        },
+        {
+          "name": "fy"
+        },
+        {
+          "name": "fr"
+        },
+        {
+          "name": "gradientUnits"
+        },
+        {
+          "name": "gradientTransform"
+        },
+        {
+          "name": "spreadMethod"
+        },
+        {
+          "name": "href"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/pservers.html#elementdef-radialGradient"
+        }
+      ]
+    },
+    {
+      "name": "stop",
+      "description": "SVG stop element.",
+      "attributes": [
+        {
+          "name": "offset"
+        },
+        {
+          "name": "stop-color"
+        },
+        {
+          "name": "stop-opacity"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/pservers.html#elementdef-stop"
+        }
+      ]
+    },
+    {
+      "name": "pattern",
+      "description": "SVG pattern element.",
+      "attributes": [
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "viewBox"
+        },
+        {
+          "name": "preserveAspectRatio"
+        },
+        {
+          "name": "patternUnits"
+        },
+        {
+          "name": "patternContentUnits"
+        },
+        {
+          "name": "patternTransform"
+        },
+        {
+          "name": "href"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/pservers.html#elementdef-pattern"
+        }
+      ]
+    },
+    {
+      "name": "view",
+      "description": "SVG view element.",
+      "attributes": [
+        {
+          "name": "viewBox"
+        },
+        {
+          "name": "preserveAspectRatio"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://w3c.github.io/svgwg/svg2-draft/linking.html#elementdef-view"
+        }
+      ]
+    },
+    {
+      "name": "clipPath",
+      "description": "SVG clipPath element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "stroke"
+        },
+        {
+          "name": "stroke-width"
+        },
+        {
+          "name": "opacity"
+        },
+        {
+          "name": "transform"
+        },
+        {
+          "name": "clipPathUnits"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/css-masking-1/#elementdef-clippath"
+        }
+      ]
+    },
+    {
+      "name": "mask",
+      "description": "SVG mask element.",
+      "attributes": [
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "maskUnits"
+        },
+        {
+          "name": "maskContentUnits"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/css-masking-1/#elementdef-mask"
+        }
+      ]
+    },
+    {
+      "name": "filter",
+      "description": "SVG filter element.",
+      "attributes": [
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "filterUnits"
+        },
+        {
+          "name": "primitiveUnits"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-filter"
+        }
+      ]
+    },
+    {
+      "name": "feBlend",
+      "description": "SVG feBlend element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "in2"
+        },
+        {
+          "name": "mode"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-feblend"
+        }
+      ]
+    },
+    {
+      "name": "feColorMatrix",
+      "description": "SVG feColorMatrix element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "type"
+        },
+        {
+          "name": "values"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fecolormatrix"
+        }
+      ]
+    },
+    {
+      "name": "feComponentTransfer",
+      "description": "SVG feComponentTransfer element.",
+      "attributes": [
+        {
+          "name": "in"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fecomponenttransfer"
+        }
+      ]
+    },
+    {
+      "name": "feFuncR",
+      "description": "SVG feFuncR element.",
+      "attributes": [
+        {
+          "name": "type"
+        },
+        {
+          "name": "tableValues"
+        },
+        {
+          "name": "slope"
+        },
+        {
+          "name": "intercept"
+        },
+        {
+          "name": "amplitude"
+        },
+        {
+          "name": "exponent"
+        },
+        {
+          "name": "offset"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fefuncr"
+        }
+      ]
+    },
+    {
+      "name": "feFuncG",
+      "description": "SVG feFuncG element.",
+      "attributes": [
+        {
+          "name": "type"
+        },
+        {
+          "name": "tableValues"
+        },
+        {
+          "name": "slope"
+        },
+        {
+          "name": "intercept"
+        },
+        {
+          "name": "amplitude"
+        },
+        {
+          "name": "exponent"
+        },
+        {
+          "name": "offset"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fefuncg"
+        }
+      ]
+    },
+    {
+      "name": "feFuncB",
+      "description": "SVG feFuncB element.",
+      "attributes": [
+        {
+          "name": "type"
+        },
+        {
+          "name": "tableValues"
+        },
+        {
+          "name": "slope"
+        },
+        {
+          "name": "intercept"
+        },
+        {
+          "name": "amplitude"
+        },
+        {
+          "name": "exponent"
+        },
+        {
+          "name": "offset"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fefuncb"
+        }
+      ]
+    },
+    {
+      "name": "feFuncA",
+      "description": "SVG feFuncA element.",
+      "attributes": [
+        {
+          "name": "type"
+        },
+        {
+          "name": "tableValues"
+        },
+        {
+          "name": "slope"
+        },
+        {
+          "name": "intercept"
+        },
+        {
+          "name": "amplitude"
+        },
+        {
+          "name": "exponent"
+        },
+        {
+          "name": "offset"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fefunca"
+        }
+      ]
+    },
+    {
+      "name": "feComposite",
+      "description": "SVG feComposite element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "in2"
+        },
+        {
+          "name": "operator"
+        },
+        {
+          "name": "k1"
+        },
+        {
+          "name": "k2"
+        },
+        {
+          "name": "k3"
+        },
+        {
+          "name": "k4"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fecomposite"
+        }
+      ]
+    },
+    {
+      "name": "feConvolveMatrix",
+      "description": "SVG feConvolveMatrix element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "order"
+        },
+        {
+          "name": "kernelMatrix"
+        },
+        {
+          "name": "divisor"
+        },
+        {
+          "name": "bias"
+        },
+        {
+          "name": "targetX"
+        },
+        {
+          "name": "targetY"
+        },
+        {
+          "name": "edgeMode"
+        },
+        {
+          "name": "preserveAlpha"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-feconvolvematrix"
+        }
+      ]
+    },
+    {
+      "name": "feDiffuseLighting",
+      "description": "SVG feDiffuseLighting element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "surfaceScale"
+        },
+        {
+          "name": "diffuseConstant"
+        },
+        {
+          "name": "lighting-color"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fediffuselighting"
+        }
+      ]
+    },
+    {
+      "name": "feDisplacementMap",
+      "description": "SVG feDisplacementMap element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "in2"
+        },
+        {
+          "name": "scale"
+        },
+        {
+          "name": "xChannelSelector"
+        },
+        {
+          "name": "yChannelSelector"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fedisplacementmap"
+        }
+      ]
+    },
+    {
+      "name": "feDropShadow",
+      "description": "SVG feDropShadow element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "dx"
+        },
+        {
+          "name": "dy"
+        },
+        {
+          "name": "stdDeviation"
+        },
+        {
+          "name": "flood-color"
+        },
+        {
+          "name": "flood-opacity"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fedropshadow"
+        }
+      ]
+    },
+    {
+      "name": "feFlood",
+      "description": "SVG feFlood element.",
+      "attributes": [
+        {
+          "name": "flood-color"
+        },
+        {
+          "name": "flood-opacity"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-feflood"
+        }
+      ]
+    },
+    {
+      "name": "feGaussianBlur",
+      "description": "SVG feGaussianBlur element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "stdDeviation"
+        },
+        {
+          "name": "edgeMode"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fegaussianblur"
+        }
+      ]
+    },
+    {
+      "name": "feImage",
+      "description": "SVG feImage element.",
+      "attributes": [
+        {
+          "name": "href"
+        },
+        {
+          "name": "preserveAspectRatio"
+        },
+        {
+          "name": "crossorigin"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-feimage"
+        }
+      ]
+    },
+    {
+      "name": "feMerge",
+      "description": "SVG feMerge element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-femerge"
+        }
+      ]
+    },
+    {
+      "name": "feMergeNode",
+      "description": "SVG feMergeNode element.",
+      "attributes": [
+        {
+          "name": "in"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-femergenode"
+        }
+      ]
+    },
+    {
+      "name": "feMorphology",
+      "description": "SVG feMorphology element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "operator"
+        },
+        {
+          "name": "radius"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-femorphology"
+        }
+      ]
+    },
+    {
+      "name": "feOffset",
+      "description": "SVG feOffset element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "dx"
+        },
+        {
+          "name": "dy"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-feoffset"
+        }
+      ]
+    },
+    {
+      "name": "feSpecularLighting",
+      "description": "SVG feSpecularLighting element.",
+      "attributes": [
+        {
+          "name": "in"
+        },
+        {
+          "name": "surfaceScale"
+        },
+        {
+          "name": "specularConstant"
+        },
+        {
+          "name": "specularExponent"
+        },
+        {
+          "name": "lighting-color"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fespecularlighting"
+        }
+      ]
+    },
+    {
+      "name": "feTile",
+      "description": "SVG feTile element.",
+      "attributes": [
+        {
+          "name": "in"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fetile"
+        }
+      ]
+    },
+    {
+      "name": "feTurbulence",
+      "description": "SVG feTurbulence element.",
+      "attributes": [
+        {
+          "name": "baseFrequency"
+        },
+        {
+          "name": "numOctaves"
+        },
+        {
+          "name": "seed"
+        },
+        {
+          "name": "stitchTiles"
+        },
+        {
+          "name": "type"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-feturbulence"
+        }
+      ]
+    },
+    {
+      "name": "feDistantLight",
+      "description": "SVG feDistantLight element.",
+      "attributes": [
+        {
+          "name": "azimuth"
+        },
+        {
+          "name": "elevation"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fedistantlight"
+        }
+      ]
+    },
+    {
+      "name": "fePointLight",
+      "description": "SVG fePointLight element.",
+      "attributes": [
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "z"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fepointlight"
+        }
+      ]
+    },
+    {
+      "name": "feSpotLight",
+      "description": "SVG feSpotLight element.",
+      "attributes": [
+        {
+          "name": "x"
+        },
+        {
+          "name": "y"
+        },
+        {
+          "name": "z"
+        },
+        {
+          "name": "pointsAtX"
+        },
+        {
+          "name": "pointsAtY"
+        },
+        {
+          "name": "pointsAtZ"
+        },
+        {
+          "name": "specularExponent"
+        },
+        {
+          "name": "limitingConeAngle"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://drafts.csswg.org/filter-effects-1/#elementdef-fespotlight"
+        }
+      ]
+    },
+    {
+      "name": "animate",
+      "description": "SVG animate element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "attributeName"
+        },
+        {
+          "name": "from"
+        },
+        {
+          "name": "to"
+        },
+        {
+          "name": "by"
+        },
+        {
+          "name": "values"
+        },
+        {
+          "name": "dur"
+        },
+        {
+          "name": "begin"
+        },
+        {
+          "name": "end"
+        },
+        {
+          "name": "repeatCount"
+        },
+        {
+          "name": "repeatDur"
+        },
+        {
+          "name": "calcMode"
+        },
+        {
+          "name": "keyTimes"
+        },
+        {
+          "name": "keySplines"
+        },
+        {
+          "name": "additive"
+        },
+        {
+          "name": "accumulate"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://svgwg.org/specs/animations/#elementdef-animate"
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "description": "SVG set element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "attributeName"
+        },
+        {
+          "name": "to"
+        },
+        {
+          "name": "begin"
+        },
+        {
+          "name": "end"
+        },
+        {
+          "name": "dur"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://svgwg.org/specs/animations/#elementdef-set"
+        }
+      ]
+    },
+    {
+      "name": "animateMotion",
+      "description": "SVG animateMotion element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "path"
+        },
+        {
+          "name": "keyPoints"
+        },
+        {
+          "name": "rotate"
+        },
+        {
+          "name": "from"
+        },
+        {
+          "name": "to"
+        },
+        {
+          "name": "by"
+        },
+        {
+          "name": "values"
+        },
+        {
+          "name": "dur"
+        },
+        {
+          "name": "begin"
+        },
+        {
+          "name": "end"
+        },
+        {
+          "name": "repeatCount"
+        },
+        {
+          "name": "calcMode"
+        },
+        {
+          "name": "keyTimes"
+        },
+        {
+          "name": "keySplines"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://svgwg.org/specs/animations/#elementdef-animateMotion"
+        }
+      ]
+    },
+    {
+      "name": "mpath",
+      "description": "SVG mpath element.",
+      "attributes": [
+        {
+          "name": "href"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://svgwg.org/specs/animations/#elementdef-mpath"
+        }
+      ]
+    },
+    {
+      "name": "animateTransform",
+      "description": "SVG animateTransform element.",
+      "attributes": [
+        {
+          "name": "fill"
+        },
+        {
+          "name": "attributeName"
+        },
+        {
+          "name": "type"
+        },
+        {
+          "name": "from"
+        },
+        {
+          "name": "to"
+        },
+        {
+          "name": "by"
+        },
+        {
+          "name": "values"
+        },
+        {
+          "name": "dur"
+        },
+        {
+          "name": "begin"
+        },
+        {
+          "name": "end"
+        },
+        {
+          "name": "repeatCount"
+        },
+        {
+          "name": "repeatDur"
+        },
+        {
+          "name": "calcMode"
+        },
+        {
+          "name": "keyTimes"
+        },
+        {
+          "name": "keySplines"
+        },
+        {
+          "name": "additive"
+        },
+        {
+          "name": "accumulate"
+        }
+      ],
+      "references": [
+        {
+          "name": "SVG specification",
+          "url": "https://svgwg.org/specs/animations/#elementdef-animateTransform"
+        }
+      ]
+    },
+    {
+      "name": "math",
+      "description": "MathML math element.",
+      "attributes": [
+        {
+          "name": "display",
+          "values": [
+            {
+              "name": "inline"
+            },
+            {
+              "name": "block"
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-math"
+        }
+      ]
+    },
+    {
+      "name": "mtext",
+      "description": "MathML mtext element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mtext"
+        }
+      ]
+    },
+    {
+      "name": "mi",
+      "description": "MathML mi element.",
+      "attributes": [
+        {
+          "name": "mathvariant",
+          "values": [
+            {
+              "name": "normal"
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mi"
+        }
+      ]
+    },
+    {
+      "name": "mn",
+      "description": "MathML mn element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mn"
+        }
+      ]
+    },
+    {
+      "name": "mo",
+      "description": "MathML mo element.",
+      "attributes": [
+        {
+          "name": "form",
+          "values": [
+            {
+              "name": "prefix"
+            },
+            {
+              "name": "infix"
+            },
+            {
+              "name": "postfix"
+            }
+          ]
+        },
+        {
+          "name": "fence",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        },
+        {
+          "name": "separator",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        },
+        {
+          "name": "stretchy",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        },
+        {
+          "name": "symmetric",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        },
+        {
+          "name": "largeop",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        },
+        {
+          "name": "movablelimits",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        },
+        {
+          "name": "lspace"
+        },
+        {
+          "name": "rspace"
+        },
+        {
+          "name": "minsize"
+        },
+        {
+          "name": "maxsize"
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mo"
+        }
+      ]
+    },
+    {
+      "name": "mspace",
+      "description": "MathML mspace element.",
+      "attributes": [
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "depth"
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mspace"
+        }
+      ]
+    },
+    {
+      "name": "ms",
+      "description": "MathML ms element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-ms"
+        }
+      ]
+    },
+    {
+      "name": "mrow",
+      "description": "MathML mrow element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mrow"
+        }
+      ]
+    },
+    {
+      "name": "mfrac",
+      "description": "MathML mfrac element.",
+      "attributes": [
+        {
+          "name": "linethickness"
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mfrac"
+        }
+      ]
+    },
+    {
+      "name": "msqrt",
+      "description": "MathML msqrt element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-msqrt"
+        }
+      ]
+    },
+    {
+      "name": "mroot",
+      "description": "MathML mroot element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mroot"
+        }
+      ]
+    },
+    {
+      "name": "mstyle",
+      "description": "MathML mstyle element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mstyle"
+        }
+      ]
+    },
+    {
+      "name": "merror",
+      "description": "MathML merror element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-merror"
+        }
+      ]
+    },
+    {
+      "name": "mpadded",
+      "description": "MathML mpadded element.",
+      "attributes": [
+        {
+          "name": "width"
+        },
+        {
+          "name": "height"
+        },
+        {
+          "name": "depth"
+        },
+        {
+          "name": "lspace"
+        },
+        {
+          "name": "voffset"
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mpadded"
+        }
+      ]
+    },
+    {
+      "name": "mphantom",
+      "description": "MathML mphantom element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mphantom"
+        }
+      ]
+    },
+    {
+      "name": "msub",
+      "description": "MathML msub element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-msub"
+        }
+      ]
+    },
+    {
+      "name": "msup",
+      "description": "MathML msup element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-msup"
+        }
+      ]
+    },
+    {
+      "name": "msubsup",
+      "description": "MathML msubsup element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-msubsup"
+        }
+      ]
+    },
+    {
+      "name": "munder",
+      "description": "MathML munder element.",
+      "attributes": [
+        {
+          "name": "accentunder",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-munder"
+        }
+      ]
+    },
+    {
+      "name": "mover",
+      "description": "MathML mover element.",
+      "attributes": [
+        {
+          "name": "accent",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mover"
+        }
+      ]
+    },
+    {
+      "name": "munderover",
+      "description": "MathML munderover element.",
+      "attributes": [
+        {
+          "name": "accent",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        },
+        {
+          "name": "accentunder",
+          "values": [
+            {
+              "name": "true"
+            },
+            {
+              "name": "false"
+            }
+          ]
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-munderover"
+        }
+      ]
+    },
+    {
+      "name": "mmultiscripts",
+      "description": "MathML mmultiscripts element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mmultiscripts"
+        }
+      ]
+    },
+    {
+      "name": "mprescripts",
+      "description": "MathML mprescripts element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mprescripts"
+        }
+      ]
+    },
+    {
+      "name": "mtable",
+      "description": "MathML mtable element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mtable"
+        }
+      ]
+    },
+    {
+      "name": "mtr",
+      "description": "MathML mtr element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mtr"
+        }
+      ]
+    },
+    {
+      "name": "mtd",
+      "description": "MathML mtd element.",
+      "attributes": [
+        {
+          "name": "columnspan"
+        },
+        {
+          "name": "rowspan"
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-mtd"
+        }
+      ]
+    },
+    {
+      "name": "maction",
+      "description": "MathML maction element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-maction"
+        }
+      ]
+    },
+    {
+      "name": "semantics",
+      "description": "MathML semantics element.",
+      "attributes": [],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-semantics"
+        }
+      ]
+    },
+    {
+      "name": "annotation",
+      "description": "MathML annotation element.",
+      "attributes": [
+        {
+          "name": "encoding"
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-annotation"
+        }
+      ]
+    },
+    {
+      "name": "annotation-xml",
+      "description": "MathML annotation-xml element.",
+      "attributes": [
+        {
+          "name": "encoding"
+        }
+      ],
+      "references": [
+        {
+          "name": "MathML Core",
+          "url": "https://w3c.github.io/mathml-core/#dfn-annotation-xml"
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "attributes": [
+        {
+          "name": "rel",
+          "description": "Space-separated relationship tokens for the linked resource.",
+          "valueSet": "link-rel"
+        }
+      ]
+    },
+    {
+      "name": "a",
+      "attributes": [
+        {
+          "name": "rel",
+          "description": "Space-separated relationship tokens for the linked resource.",
+          "valueSet": "a-rel"
+        }
+      ]
+    },
+    {
+      "name": "area",
+      "attributes": [
+        {
+          "name": "rel",
+          "description": "Space-separated relationship tokens for the linked resource.",
+          "valueSet": "area-rel"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "attributes": [
+        {
+          "name": "rel",
+          "description": "Space-separated relationship tokens for the linked resource.",
+          "valueSet": "form-rel"
+        }
+      ]
+    }
+  ],
+  "globalAttributes": [
+    {
+      "name": "contenteditable",
+      "description": "Whether this element can be edited, including plain-text editing.",
+      "valueSet": "contenteditable"
+    },
+    {
+      "name": "autocapitalize",
+      "description": "Capitalization hint for text input.",
+      "valueSet": "autocapitalize"
+    },
+    {
+      "name": "lang",
+      "description": "BCP 47 language tag. These primary subtags can be extended with a script or region.",
+      "valueSet": "languages"
+    },
+    {
+      "name": "onauxclick",
+      "description": "Handle the auxclick event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onbeforematch",
+      "description": "Handle the beforematch event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onbeforetoggle",
+      "description": "Handle the beforetoggle event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "oncancel",
+      "description": "Handle the cancel event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onclose",
+      "description": "Handle the close event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "oncontextlost",
+      "description": "Handle the contextlost event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "oncontextrestored",
+      "description": "Handle the contextrestored event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "oncopy",
+      "description": "Handle the copy event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "oncut",
+      "description": "Handle the cut event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onpaste",
+      "description": "Handle the paste event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "oncuechange",
+      "description": "Handle the cuechange event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onformdata",
+      "description": "Handle the formdata event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onsecuritypolicyviolation",
+      "description": "Handle the securitypolicyviolation event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onslotchange",
+      "description": "Handle the slotchange event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "ontoggle",
+      "description": "Handle the toggle event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onwheel",
+      "description": "Handle the wheel event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "ongotpointercapture",
+      "description": "Handle the gotpointercapture event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onlostpointercapture",
+      "description": "Handle the lostpointercapture event.",
+      "valueSet": "handler"
+    },
+    {
+      "name": "onpointerrawupdate",
+      "description": "Handle the pointerrawupdate event.",
+      "valueSet": "handler"
+    }
+  ],
+  "valueSets": [
+    {
+      "name": "contenteditable",
+      "values": [
+        {
+          "name": "true"
+        },
+        {
+          "name": "false"
+        },
+        {
+          "name": "plaintext-only"
+        }
+      ]
+    },
+    {
+      "name": "autocapitalize",
+      "values": [
+        {
+          "name": "off"
+        },
+        {
+          "name": "none"
+        },
+        {
+          "name": "on"
+        },
+        {
+          "name": "sentences"
+        },
+        {
+          "name": "words"
+        },
+        {
+          "name": "characters"
+        }
+      ]
+    },
+    {
+      "name": "languages",
+      "values": [
+        {
+          "name": "aa",
+          "description": "Afar"
+        },
+        {
+          "name": "ab",
+          "description": "Abkhazian"
+        },
+        {
+          "name": "ae",
+          "description": "Avestan"
+        },
+        {
+          "name": "af",
+          "description": "Afrikaans"
+        },
+        {
+          "name": "ak",
+          "description": "Akan"
+        },
+        {
+          "name": "am",
+          "description": "Amharic"
+        },
+        {
+          "name": "an",
+          "description": "Aragonese"
+        },
+        {
+          "name": "ar",
+          "description": "Arabic"
+        },
+        {
+          "name": "as",
+          "description": "Assamese"
+        },
+        {
+          "name": "av",
+          "description": "Avaric"
+        },
+        {
+          "name": "ay",
+          "description": "Aymara"
+        },
+        {
+          "name": "az",
+          "description": "Azerbaijani"
+        },
+        {
+          "name": "ba",
+          "description": "Bashkir"
+        },
+        {
+          "name": "be",
+          "description": "Belarusian"
+        },
+        {
+          "name": "bg",
+          "description": "Bulgarian"
+        },
+        {
+          "name": "bi",
+          "description": "Bislama"
+        },
+        {
+          "name": "bm",
+          "description": "Bambara"
+        },
+        {
+          "name": "bn",
+          "description": "Bengali"
+        },
+        {
+          "name": "bo",
+          "description": "Tibetan"
+        },
+        {
+          "name": "br",
+          "description": "Breton"
+        },
+        {
+          "name": "bs",
+          "description": "Bosnian"
+        },
+        {
+          "name": "ca",
+          "description": "Catalan"
+        },
+        {
+          "name": "ce",
+          "description": "Chechen"
+        },
+        {
+          "name": "ch",
+          "description": "Chamorro"
+        },
+        {
+          "name": "co",
+          "description": "Corsican"
+        },
+        {
+          "name": "cr",
+          "description": "Cree"
+        },
+        {
+          "name": "cs",
+          "description": "Czech"
+        },
+        {
+          "name": "cu",
+          "description": "Church Slavic"
+        },
+        {
+          "name": "cv",
+          "description": "Chuvash"
+        },
+        {
+          "name": "cy",
+          "description": "Welsh"
+        },
+        {
+          "name": "da",
+          "description": "Danish"
+        },
+        {
+          "name": "de",
+          "description": "German"
+        },
+        {
+          "name": "dv",
+          "description": "Dhivehi"
+        },
+        {
+          "name": "dz",
+          "description": "Dzongkha"
+        },
+        {
+          "name": "ee",
+          "description": "Ewe"
+        },
+        {
+          "name": "el",
+          "description": "Modern Greek (1453-)"
+        },
+        {
+          "name": "en",
+          "description": "English"
+        },
+        {
+          "name": "eo",
+          "description": "Esperanto"
+        },
+        {
+          "name": "es",
+          "description": "Spanish"
+        },
+        {
+          "name": "et",
+          "description": "Estonian"
+        },
+        {
+          "name": "eu",
+          "description": "Basque"
+        },
+        {
+          "name": "fa",
+          "description": "Persian"
+        },
+        {
+          "name": "ff",
+          "description": "Fulah"
+        },
+        {
+          "name": "fi",
+          "description": "Finnish"
+        },
+        {
+          "name": "fj",
+          "description": "Fijian"
+        },
+        {
+          "name": "fo",
+          "description": "Faroese"
+        },
+        {
+          "name": "fr",
+          "description": "French"
+        },
+        {
+          "name": "fy",
+          "description": "Western Frisian"
+        },
+        {
+          "name": "ga",
+          "description": "Irish"
+        },
+        {
+          "name": "gd",
+          "description": "Scottish Gaelic"
+        },
+        {
+          "name": "gl",
+          "description": "Galician"
+        },
+        {
+          "name": "gn",
+          "description": "Guarani"
+        },
+        {
+          "name": "gu",
+          "description": "Gujarati"
+        },
+        {
+          "name": "gv",
+          "description": "Manx"
+        },
+        {
+          "name": "ha",
+          "description": "Hausa"
+        },
+        {
+          "name": "he",
+          "description": "Hebrew"
+        },
+        {
+          "name": "hi",
+          "description": "Hindi"
+        },
+        {
+          "name": "ho",
+          "description": "Hiri Motu"
+        },
+        {
+          "name": "hr",
+          "description": "Croatian"
+        },
+        {
+          "name": "ht",
+          "description": "Haitian"
+        },
+        {
+          "name": "hu",
+          "description": "Hungarian"
+        },
+        {
+          "name": "hy",
+          "description": "Armenian"
+        },
+        {
+          "name": "hz",
+          "description": "Herero"
+        },
+        {
+          "name": "ia",
+          "description": "Interlingua (IALA)"
+        },
+        {
+          "name": "id",
+          "description": "Indonesian"
+        },
+        {
+          "name": "ie",
+          "description": "Interlingue"
+        },
+        {
+          "name": "ig",
+          "description": "Igbo"
+        },
+        {
+          "name": "ii",
+          "description": "Sichuan Yi"
+        },
+        {
+          "name": "ik",
+          "description": "Inupiaq"
+        },
+        {
+          "name": "io",
+          "description": "Ido"
+        },
+        {
+          "name": "is",
+          "description": "Icelandic"
+        },
+        {
+          "name": "it",
+          "description": "Italian"
+        },
+        {
+          "name": "iu",
+          "description": "Inuktitut"
+        },
+        {
+          "name": "ja",
+          "description": "Japanese"
+        },
+        {
+          "name": "jv",
+          "description": "Javanese"
+        },
+        {
+          "name": "ka",
+          "description": "Georgian"
+        },
+        {
+          "name": "kg",
+          "description": "Kongo"
+        },
+        {
+          "name": "ki",
+          "description": "Kikuyu"
+        },
+        {
+          "name": "kj",
+          "description": "Kuanyama"
+        },
+        {
+          "name": "kk",
+          "description": "Kazakh"
+        },
+        {
+          "name": "kl",
+          "description": "Kalaallisut"
+        },
+        {
+          "name": "km",
+          "description": "Khmer"
+        },
+        {
+          "name": "kn",
+          "description": "Kannada"
+        },
+        {
+          "name": "ko",
+          "description": "Korean"
+        },
+        {
+          "name": "kr",
+          "description": "Kanuri"
+        },
+        {
+          "name": "ks",
+          "description": "Kashmiri"
+        },
+        {
+          "name": "ku",
+          "description": "Kurdish"
+        },
+        {
+          "name": "kv",
+          "description": "Komi"
+        },
+        {
+          "name": "kw",
+          "description": "Cornish"
+        },
+        {
+          "name": "ky",
+          "description": "Kirghiz"
+        },
+        {
+          "name": "la",
+          "description": "Latin"
+        },
+        {
+          "name": "lb",
+          "description": "Luxembourgish"
+        },
+        {
+          "name": "lg",
+          "description": "Ganda"
+        },
+        {
+          "name": "li",
+          "description": "Limburgan"
+        },
+        {
+          "name": "ln",
+          "description": "Lingala"
+        },
+        {
+          "name": "lo",
+          "description": "Lao"
+        },
+        {
+          "name": "lt",
+          "description": "Lithuanian"
+        },
+        {
+          "name": "lu",
+          "description": "Luba-Katanga"
+        },
+        {
+          "name": "lv",
+          "description": "Latvian"
+        },
+        {
+          "name": "mg",
+          "description": "Malagasy"
+        },
+        {
+          "name": "mh",
+          "description": "Marshallese"
+        },
+        {
+          "name": "mi",
+          "description": "Maori"
+        },
+        {
+          "name": "mk",
+          "description": "Macedonian"
+        },
+        {
+          "name": "ml",
+          "description": "Malayalam"
+        },
+        {
+          "name": "mn",
+          "description": "Mongolian"
+        },
+        {
+          "name": "mr",
+          "description": "Marathi"
+        },
+        {
+          "name": "ms",
+          "description": "Malay (macrolanguage)"
+        },
+        {
+          "name": "mt",
+          "description": "Maltese"
+        },
+        {
+          "name": "my",
+          "description": "Burmese"
+        },
+        {
+          "name": "na",
+          "description": "Nauru"
+        },
+        {
+          "name": "nb",
+          "description": "Norwegian Bokmål"
+        },
+        {
+          "name": "nd",
+          "description": "North Ndebele"
+        },
+        {
+          "name": "ne",
+          "description": "Nepali (macrolanguage)"
+        },
+        {
+          "name": "ng",
+          "description": "Ndonga"
+        },
+        {
+          "name": "nl",
+          "description": "Dutch"
+        },
+        {
+          "name": "nn",
+          "description": "Norwegian Nynorsk"
+        },
+        {
+          "name": "no",
+          "description": "Norwegian"
+        },
+        {
+          "name": "nr",
+          "description": "South Ndebele"
+        },
+        {
+          "name": "nv",
+          "description": "Navajo"
+        },
+        {
+          "name": "ny",
+          "description": "Chichewa"
+        },
+        {
+          "name": "oc",
+          "description": "Occitan (post 1500)"
+        },
+        {
+          "name": "oj",
+          "description": "Ojibwa"
+        },
+        {
+          "name": "om",
+          "description": "Oromo"
+        },
+        {
+          "name": "or",
+          "description": "Oriya (macrolanguage)"
+        },
+        {
+          "name": "os",
+          "description": "Iron Ossetic"
+        },
+        {
+          "name": "pa",
+          "description": "Panjabi"
+        },
+        {
+          "name": "pi",
+          "description": "Pali"
+        },
+        {
+          "name": "pl",
+          "description": "Polish"
+        },
+        {
+          "name": "ps",
+          "description": "Pushto"
+        },
+        {
+          "name": "pt",
+          "description": "Portuguese"
+        },
+        {
+          "name": "qu",
+          "description": "Quechua"
+        },
+        {
+          "name": "rm",
+          "description": "Romansh"
+        },
+        {
+          "name": "rn",
+          "description": "Rundi"
+        },
+        {
+          "name": "ro",
+          "description": "Romanian"
+        },
+        {
+          "name": "ru",
+          "description": "Russian"
+        },
+        {
+          "name": "rw",
+          "description": "Kinyarwanda"
+        },
+        {
+          "name": "sa",
+          "description": "Sanskrit"
+        },
+        {
+          "name": "sc",
+          "description": "Sardinian"
+        },
+        {
+          "name": "sd",
+          "description": "Sindhi"
+        },
+        {
+          "name": "se",
+          "description": "Northern Sami"
+        },
+        {
+          "name": "sg",
+          "description": "Sango"
+        },
+        {
+          "name": "sh",
+          "description": "Serbo-Croatian"
+        },
+        {
+          "name": "si",
+          "description": "Sinhala"
+        },
+        {
+          "name": "sk",
+          "description": "Slovak"
+        },
+        {
+          "name": "sl",
+          "description": "Slovenian"
+        },
+        {
+          "name": "sm",
+          "description": "Samoan"
+        },
+        {
+          "name": "sn",
+          "description": "Shona"
+        },
+        {
+          "name": "so",
+          "description": "Somali"
+        },
+        {
+          "name": "sq",
+          "description": "Albanian"
+        },
+        {
+          "name": "sr",
+          "description": "Serbian"
+        },
+        {
+          "name": "ss",
+          "description": "Swati"
+        },
+        {
+          "name": "st",
+          "description": "Southern Sotho"
+        },
+        {
+          "name": "su",
+          "description": "Sundanese"
+        },
+        {
+          "name": "sv",
+          "description": "Swedish"
+        },
+        {
+          "name": "sw",
+          "description": "Swahili (macrolanguage)"
+        },
+        {
+          "name": "ta",
+          "description": "Tamil"
+        },
+        {
+          "name": "te",
+          "description": "Telugu"
+        },
+        {
+          "name": "tg",
+          "description": "Tajik"
+        },
+        {
+          "name": "th",
+          "description": "Thai"
+        },
+        {
+          "name": "ti",
+          "description": "Tigrinya"
+        },
+        {
+          "name": "tk",
+          "description": "Turkmen"
+        },
+        {
+          "name": "tl",
+          "description": "Tagalog"
+        },
+        {
+          "name": "tn",
+          "description": "Tswana"
+        },
+        {
+          "name": "to",
+          "description": "Tonga (Tonga Islands)"
+        },
+        {
+          "name": "tr",
+          "description": "Turkish"
+        },
+        {
+          "name": "ts",
+          "description": "Tsonga"
+        },
+        {
+          "name": "tt",
+          "description": "Tatar"
+        },
+        {
+          "name": "tw",
+          "description": "Twi"
+        },
+        {
+          "name": "ty",
+          "description": "Tahitian"
+        },
+        {
+          "name": "ug",
+          "description": "Uighur"
+        },
+        {
+          "name": "uk",
+          "description": "Ukrainian"
+        },
+        {
+          "name": "ur",
+          "description": "Urdu"
+        },
+        {
+          "name": "uz",
+          "description": "Uzbek"
+        },
+        {
+          "name": "ve",
+          "description": "Venda"
+        },
+        {
+          "name": "vi",
+          "description": "Vietnamese"
+        },
+        {
+          "name": "vo",
+          "description": "Volapük"
+        },
+        {
+          "name": "wa",
+          "description": "Walloon"
+        },
+        {
+          "name": "wo",
+          "description": "Wolof"
+        },
+        {
+          "name": "xh",
+          "description": "Xhosa"
+        },
+        {
+          "name": "yi",
+          "description": "Yiddish"
+        },
+        {
+          "name": "yo",
+          "description": "Yoruba"
+        },
+        {
+          "name": "za",
+          "description": "Zhuang"
+        },
+        {
+          "name": "zh",
+          "description": "Chinese"
+        },
+        {
+          "name": "zu",
+          "description": "Zulu"
+        }
+      ]
+    },
+    {
+      "name": "link-rel",
+      "values": [
+        {
+          "name": "alternate"
+        },
+        {
+          "name": "author"
+        },
+        {
+          "name": "canonical"
+        },
+        {
+          "name": "dns-prefetch"
+        },
+        {
+          "name": "expect"
+        },
+        {
+          "name": "help"
+        },
+        {
+          "name": "icon"
+        },
+        {
+          "name": "license"
+        },
+        {
+          "name": "manifest"
+        },
+        {
+          "name": "modulepreload"
+        },
+        {
+          "name": "next"
+        },
+        {
+          "name": "pingback"
+        },
+        {
+          "name": "preconnect"
+        },
+        {
+          "name": "prefetch"
+        },
+        {
+          "name": "preload"
+        },
+        {
+          "name": "prev"
+        },
+        {
+          "name": "privacy-policy"
+        },
+        {
+          "name": "search"
+        },
+        {
+          "name": "stylesheet"
+        },
+        {
+          "name": "terms-of-service"
+        }
+      ]
+    },
+    {
+      "name": "a-rel",
+      "values": [
+        {
+          "name": "alternate"
+        },
+        {
+          "name": "author"
+        },
+        {
+          "name": "bookmark"
+        },
+        {
+          "name": "external"
+        },
+        {
+          "name": "help"
+        },
+        {
+          "name": "license"
+        },
+        {
+          "name": "next"
+        },
+        {
+          "name": "nofollow"
+        },
+        {
+          "name": "noopener"
+        },
+        {
+          "name": "noreferrer"
+        },
+        {
+          "name": "opener"
+        },
+        {
+          "name": "prev"
+        },
+        {
+          "name": "privacy-policy"
+        },
+        {
+          "name": "search"
+        },
+        {
+          "name": "tag"
+        },
+        {
+          "name": "terms-of-service"
+        }
+      ]
+    },
+    {
+      "name": "area-rel",
+      "values": [
+        {
+          "name": "alternate"
+        },
+        {
+          "name": "author"
+        },
+        {
+          "name": "bookmark"
+        },
+        {
+          "name": "external"
+        },
+        {
+          "name": "help"
+        },
+        {
+          "name": "license"
+        },
+        {
+          "name": "next"
+        },
+        {
+          "name": "nofollow"
+        },
+        {
+          "name": "noopener"
+        },
+        {
+          "name": "noreferrer"
+        },
+        {
+          "name": "opener"
+        },
+        {
+          "name": "prev"
+        },
+        {
+          "name": "privacy-policy"
+        },
+        {
+          "name": "search"
+        },
+        {
+          "name": "tag"
+        },
+        {
+          "name": "terms-of-service"
+        }
+      ]
+    },
+    {
+      "name": "form-rel",
+      "values": [
+        {
+          "name": "external"
+        },
+        {
+          "name": "help"
+        },
+        {
+          "name": "license"
+        },
+        {
+          "name": "next"
+        },
+        {
+          "name": "nofollow"
+        },
+        {
+          "name": "noopener"
+        },
+        {
+          "name": "noreferrer"
+        },
+        {
+          "name": "opener"
+        },
+        {
+          "name": "prev"
+        },
+        {
+          "name": "search"
+        }
+      ]
+    }
+  ]
+}

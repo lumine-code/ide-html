@@ -3,10 +3,10 @@ const os = require("os");
 const path = require("path");
 const { pathToFileURL } = require("url");
 const { resolveServer, managedServer } = require("../lib/server");
-const main = require("../lib/main");
 
 const registerAdapter = () => {
   let adapter;
+  const main = lumine.packages.getActivePackage("ide-html").mainModule;
   const disposable = main.consumeIdeClient({
     registerAdapter(registered) {
       adapter = registered;
@@ -72,9 +72,13 @@ describe("ide-html adapter", () => {
       "text.html.ejs",
       "text.html.erb",
       "text.html.mustache",
+      "text.html.php",
+      "text.html.php.blade",
+      "source.gfm",
     ]);
     expect(adapter.languageIdForScope("text.html.erb")).toBe("html");
     expect(adapter.settingsKeyPaths).toEqual(["ide-html"]);
+    expect(adapter.featuresKeyPath).toBe("ide-html.features");
     expect(adapter.restartKeyPaths).toEqual(["ide-html.serverPath", "ide-html.customData"]);
     const launch = await adapter.resolveServer({ rootPath: __dirname });
     expect(launch.cwd).toBe(__dirname);
@@ -86,7 +90,10 @@ describe("ide-html adapter", () => {
     expect(adapter.getInitializationOptions({ rootPath: __dirname })).toEqual({
       provideFormatter: true,
       embeddedLanguages: { css: true, javascript: true },
-      dataPaths: [pathToFileURL(path.join(__dirname, "config", "html-data.json")).href],
+      dataPaths: [
+        pathToFileURL(path.join(__dirname, "../lib/html-data.json")).href,
+        pathToFileURL(path.join(__dirname, "config", "html-data.json")).href,
+      ],
     });
     lumine.config.set("ide-html.features.format", false);
     expect(adapter.getInitializationOptions().provideFormatter).toBe(true);
@@ -122,14 +129,18 @@ describe("ide-html adapter", () => {
     expect(adapter.getWorkspaceConfiguration("unknown")).toBeUndefined();
   });
 
-  it("serves only configured HTML custom-data files", async () => {
+  it("serves bundled data and only configured project custom-data files", async () => {
     const rootPath = fs.mkdtempSync(path.join(os.tmpdir(), "ide-html-data-"));
     const dataPath = path.join(rootPath, "html-data.json");
     fs.writeFileSync(dataPath, '{"version":1,"tags":[]}');
     lumine.config.set("ide-html.customData", ["html-data.json"]);
-    const uri = adapter.getInitializationOptions({ rootPath }).dataPaths[0];
+    const [bundledUri, uri] = adapter.getInitializationOptions({ rootPath }).dataPaths;
 
     const session = { rootPath };
+    const bundled = JSON.parse(
+      await adapter.handleServerRequest("html/customDataContent", [bundledUri], { session }),
+    );
+    expect(bundled.tags.some(({ name }) => name === "svg")).toBe(true);
     await expectAsync(
       adapter.handleServerRequest("html/customDataContent", [uri], { session }),
     ).toBeResolvedTo('{"version":1,"tags":[]}');
@@ -158,6 +169,17 @@ describe("ide-html adapter", () => {
       scripts: true,
       styles: true,
     });
+  });
+
+  it("keeps formatting of projected markup with its host language", () => {
+    for (const scopeName of ["text.html.php", "text.html.php.blade", "source.gfm"]) {
+      const editor = { getGrammar: () => ({ scopeName }) };
+      lumine.config.set("ide-html.features.format", true);
+      expect(adapter.isFeatureAvailable("format", editor)).withContext(scopeName).toBe(false);
+      expect(adapter.isFeatureAvailable("autocomplete", editor)).withContext(scopeName).toBe(true);
+    }
+    const editor = { getGrammar: () => ({ scopeName: "text.html.basic" }) };
+    expect(adapter.isFeatureAvailable("format", editor)).toBe(true);
   });
 
   it("offers switches for exactly the capabilities the server advertises", () => {

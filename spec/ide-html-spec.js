@@ -76,6 +76,12 @@ describe("ide-html adapter", () => {
       "text.html.php.blade",
       "source.gfm",
     ]);
+    expect(adapter.documentSymbolScopes).toEqual([
+      "text.html.basic",
+      "text.html.ejs",
+      "text.html.erb",
+      "text.html.mustache",
+    ]);
     expect(adapter.languageIdForScope("text.html.erb")).toBe("html");
     expect(adapter.settingsKeyPaths).toEqual(["ide-html"]);
     expect(adapter.featuresKeyPath).toBe("ide-html.features");

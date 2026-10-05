@@ -25,7 +25,10 @@
     "language-html",
     "language-php",
     "language-blade",
-    "language-gfm"
+    "language-gfm",
+    "ide-client",
+    "symbol",
+    "symbol-tree-sitter"
   ],
   "main": "./lib/main",
   "files": [

@@ -24,7 +24,7 @@ Install `ide-client` first.
 
 The bundled completion data supplements the server with SVG and MathML markup, language subtags, link relationships, editing options, and event handlers. Element names follow [W3C Webref](https://github.com/w3c/webref), HTML values follow the [HTML Standard](https://html.spec.whatwg.org/), and language suggestions use current two-letter primary subtags from [IANA](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry). Language tags can include additional script and region subtags. Project custom data adds to these suggestions.
 
-PHP, Blade, and Markdown send only their markup to the HTML server while preserving document positions. Formatting stays with the packages for those host languages.
+PHP, Blade, and Markdown send only their markup to the HTML server while preserving document positions. Completion, hover and navigation remain available in that markup. Whole-document symbols and formatting stay with the host language; HTML document symbols are offered for HTML, EJS, ERB and Mustache buffers.
 
 ## Services
 

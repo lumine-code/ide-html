@@ -1,8 +1,11 @@
+const { serverContext } = require("./helpers/server-context");
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const { pathToFileURL } = require("url");
-const { resolveServer, managedServer } = require("../lib/server");
+const { resolveServer: resolveServerWithContext, managedServer } = require("../lib/server");
+const resolveServer = (configuredPath, managedServer = null) =>
+  resolveServerWithContext(serverContext({ rootPath: __dirname, managedServer }), configuredPath);
 
 const registerAdapter = () => {
   let adapter;
@@ -34,7 +37,10 @@ describe("ide-html server resolution", () => {
   });
 
   it("prefers a managed install over the bundled server", async () => {
-    const managed = { modulePath: "/managed/server.js", version: "9.9.9" };
+    const managed = {
+      modulePath: require.resolve("vscode-langservers-extracted/bin/vscode-html-language-server"),
+      version: "9.9.9",
+    };
     const launch = await resolveServer("", managed);
     expect(launch.args[0]).toBe(managed.modulePath);
     // Reported in the session details, so which copy is running is visible.
@@ -86,7 +92,7 @@ describe("ide-html adapter", () => {
     expect(adapter.settingsKeyPaths).toEqual(["ide-html"]);
     expect(adapter.featuresKeyPath).toBe("ide-html.features");
     expect(adapter.restartKeyPaths).toEqual(["ide-html.serverPath", "ide-html.customData"]);
-    const launch = await adapter.resolveServer({ rootPath: __dirname });
+    const launch = await adapter.resolveServer(serverContext({ rootPath: __dirname }));
     expect(launch.cwd).toBe(__dirname);
     expect(launch.transport).toBe("stdio");
   });
@@ -237,4 +243,12 @@ describe("ide-html feature contracts", () => {
       expect(lumine.config.get(keyPath)).toBe(false);
     });
   }
+});
+
+describe("ide-html shared server resolution", () => {
+  it("preserves an unavailable selection as null", async () => {
+    const { resolveServer: resolveWithContext } = require("../lib/server");
+    const resolver = { select: jasmine.createSpy("select").and.resolveTo(null) };
+    expect(await resolveWithContext({ rootPath: __dirname, resolver }, "")).toBeNull();
+  });
 });

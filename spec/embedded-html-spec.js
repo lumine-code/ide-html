@@ -92,7 +92,7 @@ describe("embedded HTML source projection", () => {
     const { LiveLspClient, fileUri, positionParams } = require("./helpers/live-lsp-client");
     const main = lumine.packages.getActivePackage("ide-html").mainModule;
     let adapter;
-    const registration = main.consumeIdeClient({
+    const registration = main.consumeIde({
       registerAdapter(value) {
         adapter = value;
         return { dispose() {} };

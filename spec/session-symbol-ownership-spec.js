@@ -17,7 +17,7 @@ describe("HTML document symbol ownership through the public hub", () => {
   const peers = [
     "language-html",
     "language-gfm",
-    "ide-client",
+    "ide",
     "ide-html",
     "symbol-tree-sitter",
     "symbol",
@@ -38,9 +38,9 @@ describe("HTML document symbol ownership through the public hub", () => {
     root = fs.mkdtempSync(path.join(os.tmpdir(), "ide-html-symbol-ownership-"));
     editors = [];
     for (const name of peers) await lumine.packages.activatePackage(name);
-    const client = lumine.packages.getActivePackage("ide-client").mainModule;
-    service = client.provideIdeClient();
-    documentProvider = client.provideDocumentSymbolProvider();
+    const ide = lumine.packages.getActivePackage("ide").mainModule;
+    service = ide.provideIde();
+    documentProvider = ide.provideDocumentSymbolProvider();
     registry = lumine.packages.getActivePackage("symbol").mainModule.provideSymbolRegistry();
     lumine.project.setPaths([root]);
   });
@@ -87,11 +87,11 @@ describe("HTML document symbol ownership through the public hub", () => {
       expect(documentProvider.getDocumentSymbolSources(editor)).toEqual([]);
       const request = spyOn(session, "request").and.callThrough();
       expect(
-        await documentProvider.getDocumentSymbols(editor, { sourceId: "ide-client:ide-html" }),
+        await documentProvider.getDocumentSymbols(editor, { sourceId: "ide:ide-html" }),
       ).toBeNull();
       const sources = await registry.listDocumentSources(editor);
       expect(sources.map(({ id }) => id)).toContain("symbol-tree-sitter");
-      expect(sources.map(({ id }) => id)).not.toContain("ide-client:ide-html");
+      expect(sources.map(({ id }) => id)).not.toContain("ide:ide-html");
       const symbols = await until(() => registry.getFileSymbols(editor), "Markdown symbols");
       expect(symbols.map(({ name }) => name)).toContain("· Main");
       expect(symbols.map(({ name }) => name)).toContain("·· Details");
@@ -110,10 +110,10 @@ describe("HTML document symbol ownership through the public hub", () => {
       '<section id="native"><h1>Title</h1></section>\n',
     );
     const sources = await registry.listDocumentSources(editor);
-    expect(sources.find(({ id }) => id === "ide-client:ide-html").state).toBe("ready");
+    expect(sources.find(({ id }) => id === "ide:ide-html").state).toBe("ready");
     const symbols = await until(() => registry.getFileSymbols(editor), "native HTML symbols");
     expect(symbols.length).toBeGreaterThan(0);
     expect(symbols.every(({ providerName }) => providerName === "HTML Language Server")).toBe(true);
-    expect(registry.getDocumentSourceState(editor).source.id).toBe("ide-client:ide-html");
+    expect(registry.getDocumentSourceState(editor).source.id).toBe("ide:ide-html");
   });
 });

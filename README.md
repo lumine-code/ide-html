@@ -2,7 +2,7 @@
 
 HTML language-server adapter.
 
-Registers the HTML server from [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted) with the `ide-client` package, providing pull diagnostics, completion, hover, navigation, symbols, and formatting for HTML and template documents.
+Registers the HTML server from [vscode-langservers-extracted](https://github.com/hrsh7th/vscode-langservers-extracted) with the `ide` package, providing pull diagnostics, completion, hover, navigation, symbols, and formatting for HTML and template documents.
 
 ## Features
 
@@ -20,7 +20,7 @@ Registers the HTML server from [vscode-langservers-extracted](https://github.com
 
 To install `ide-html` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/ide-html`.
 
-Install `ide-client` first.
+Install `ide` first.
 
 The bundled completion data supplements the server with SVG and MathML markup, language subtags, link relationships, editing options, and event handlers. Element names follow [W3C Webref](https://github.com/w3c/webref), HTML values follow the [HTML Standard](https://html.spec.whatwg.org/), and language suggestions use current two-letter primary subtags from [IANA](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry). Language tags can include additional script and region subtags. Project custom data adds to these suggestions.
 
@@ -28,7 +28,7 @@ PHP, Blade, and Markdown send only their markup to the HTML server while preserv
 
 ## Services
 
-- `ide-client`: consumed to register the HTML adapter with the editor's language-server client.
+- `ide`: consumed to register the HTML adapter with the editor's language-server client.
 
 ## Contributing
 

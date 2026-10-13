@@ -1,0 +1,16 @@
+{
+  "title": "ide-html",
+  "description": "HTML hover documentation explains the button element at the cursor.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "e41f063004040cebe486f694e87028a22839d8af",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "HTML hover documentation explains the button element at the cursor.",
+      "width": 1100,
+      "height": 490
+    }
+  ]
+}

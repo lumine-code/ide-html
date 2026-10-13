@@ -16,6 +16,8 @@ Registers the HTML server from [vscode-langservers-extracted](https://github.com
 - **Feature switches**: each capability can be handed to another language server serving the same file.
 - **Project sessions**: one server per project root, started lazily with the first HTML editor.
 
+![HTML hover documentation explains the button element at the cursor.](.github/demo.png)
+
 ## Installation
 
 To install `ide-html` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/ide-html`.

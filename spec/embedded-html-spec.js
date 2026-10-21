@@ -2,6 +2,7 @@ describe("embedded HTML source projection", () => {
   let editor, projection;
 
   beforeEach(async () => {
+    jasmine.useRealClock();
     await lumine.packages.activatePackage("ide-html");
     for (const name of ["language-html", "language-php", "language-blade", "language-gfm"])
       await lumine.packages.activatePackage(name);
@@ -15,7 +16,7 @@ describe("embedded HTML source projection", () => {
     editor.setGrammar(lumine.grammars.grammarForScopeName(scope));
     editor.setText(text);
     expect(await editor.whenGrammarSettled()).toBe(true);
-    const transformed = projection.transformDocumentText(text, { editor });
+    const transformed = (await projection.getDocumentProjection(editor)).text;
     expect(transformed.length).toBe(text.length);
     for (let index = 0; index < text.length; index++) {
       if (text[index] === "\r" || text[index] === "\n")
@@ -83,6 +84,62 @@ describe("embedded HTML source projection", () => {
     const text = '<script>const value = "<span>";</script>\n<div cl';
     expect(await project("text.html.basic", text)).toBe(text);
     expect(projection.isEmbeddedDocument(editor)).toBe(false);
+  });
+
+  it("gates HTML edits and diagnostics while retaining read-only enclosing geometry", async () => {
+    await project("text.html.php", "<?php $value = '😀'; ?>\r\n<div class=\"old\">text</div>");
+    const snapshot = await projection.getDocumentProjection(editor);
+    expect(snapshot.ownsPosition([0, 7])).toBeFalse();
+    expect(snapshot.ownsPosition([1, 12])).toBeTrue();
+    const edit = {
+      oldRange: [
+        [1, 12],
+        [1, 15],
+      ],
+      newText: "new",
+    };
+    expect(snapshot.mapEdits([edit])[0].oldRange.serialize()).toEqual(edit.oldRange);
+    expect(
+      snapshot.mapEdits([
+        edit,
+        {
+          oldRange: [
+            [0, 6],
+            [0, 12],
+          ],
+          newText: "hidden",
+        },
+      ]),
+    ).toBeNull();
+    expect(
+      snapshot.fromServerRange([
+        [0, 0],
+        [1, 15],
+      ]),
+    ).not.toBeNull();
+    expect(
+      snapshot.ownsRange([
+        [0, 0],
+        [1, 15],
+      ]),
+    ).toBeFalse();
+    editor.insertText("changed");
+    expect(snapshot.isCurrent()).toBeFalse();
+    expect(snapshot.mapEdits([edit])).toBeNull();
+  });
+
+  it("keeps a settled projection valid when one split closes", async () => {
+    await project("text.html.php", "<?php echo 1; ?>\n<div>text</div>");
+    const snapshot = await projection.getDocumentProjection(editor);
+    const split = editor.copy();
+    try {
+      editor.destroy();
+      expect(snapshot.isCurrent()).toBeTrue();
+      split.getBuffer().append("changed");
+      expect(snapshot.isCurrent()).toBeFalse();
+    } finally {
+      split.destroy();
+    }
   });
 
   it("completes projected PHP, Blade and Markdown at their original document positions", async () => {

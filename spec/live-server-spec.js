@@ -246,7 +246,17 @@ describe("ide-html bundled server", () => {
       return result.items.some(({ label }) => label === "svg") ? result : null;
     }, "bundled HTML data");
     const names = tags.items.map(({ label }) => label);
-    for (const name of ["div", "svg", "path", "rect", "math", "mrow", "mfrac"])
+    for (const name of [
+      "div",
+      "search",
+      "fencedframe",
+      "svg",
+      "path",
+      "rect",
+      "math",
+      "mrow",
+      "mfrac",
+    ])
       expect(names).withContext(name).toContain(name);
     expect(names).not.toContain("marquee");
 
@@ -254,8 +264,12 @@ describe("ide-html bundled server", () => {
       ['<div contenteditable="|">', ["true", "false", "plaintext-only"]],
       ['<div autocapitalize="|">', ["none", "sentences", "words", "characters"]],
       ['<html lang="|">', ["en", "pl", "de", "fr", "zh"]],
-      ['<link rel="|">', ["stylesheet", "preload", "modulepreload", "icon"]],
-      ['<a rel="|">', ["noopener", "noreferrer", "nofollow"]],
+      [
+        '<link rel="|">',
+        ["stylesheet", "preload", "modulepreload", "icon", "compression-dictionary", "me"],
+      ],
+      ['<a rel="|">', ["noopener", "noreferrer", "nofollow", "me"]],
+      ['<area rel="|">', ["noopener", "noreferrer", "nofollow", "me"]],
       ["<div |>", ["oncopy", "onpaste", "onwheel", "ontoggle", "class", "popover"]],
       ["<svg |>", ["viewBox", "width", "height"]],
       ["<svg><path |></path></svg>", ["d", "fill", "stroke-width"]],

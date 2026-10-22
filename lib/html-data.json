@@ -3330,6 +3330,9 @@
           "name": "canonical"
         },
         {
+          "name": "compression-dictionary"
+        },
+        {
           "name": "dns-prefetch"
         },
         {
@@ -3346,6 +3349,9 @@
         },
         {
           "name": "manifest"
+        },
+        {
+          "name": "me"
         },
         {
           "name": "modulepreload"
@@ -3404,6 +3410,9 @@
           "name": "license"
         },
         {
+          "name": "me"
+        },
+        {
           "name": "next"
         },
         {
@@ -3455,6 +3464,9 @@
         },
         {
           "name": "license"
+        },
+        {
+          "name": "me"
         },
         {
           "name": "next"

@@ -2,6 +2,8 @@ describe("embedded HTML source projection", () => {
   let editor, projection;
 
   beforeEach(async () => {
+    const textGrammarPackage = await lumine.packages.activatePackage("language-text");
+    await textGrammarPackage.resourceLoadPromise;
     jasmine.useRealClock();
     await lumine.packages.activatePackage("ide-html");
     for (const name of ["language-html", "language-php", "language-blade", "language-gfm"])
@@ -11,6 +13,13 @@ describe("embedded HTML source projection", () => {
   });
 
   afterEach(() => editor?.destroy());
+
+  it("does not copy or project a document with None", async () => {
+    editor.setGrammar(lumine.grammars.nullGrammar);
+    const snapshot = spyOn(editor.getBuffer(), "getTextSnapshot").and.callThrough();
+    expect(await projection.getDocumentProjection(editor)).toBeNull();
+    expect(snapshot).not.toHaveBeenCalled();
+  });
 
   const project = async (scope, text) => {
     editor.setGrammar(lumine.grammars.grammarForScopeName(scope));

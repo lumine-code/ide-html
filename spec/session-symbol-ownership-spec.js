@@ -33,6 +33,8 @@ describe("HTML document symbol ownership through the public hub", () => {
   });
 
   beforeEach(async () => {
+    const textGrammarPackage = await lumine.packages.activatePackage("language-text");
+    await textGrammarPackage.resourceLoadPromise;
     jasmine.useRealClock();
     previousPaths = lumine.project.getPaths();
     root = fs.mkdtempSync(path.join(os.tmpdir(), "ide-html-symbol-ownership-"));

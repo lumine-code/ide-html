@@ -34,6 +34,20 @@ describe("embedded HTML source projection", () => {
     return transformed;
   };
 
+  it("does not copy an unavailable embedded source and resumes after syntax recovers", async () => {
+    await project("text.html.php", "<?php echo 1; ?>\n<div>fresh</div>");
+    const availability = jasmine.createSpy("availability").and.returnValue({
+      available: false,
+      reason: "failure",
+    });
+    Object.defineProperty(editor, "getSyntaxAvailability", { value: availability });
+    const snapshot = spyOn(editor.getBuffer(), "getTextSnapshot").and.callThrough();
+    expect(await projection.getDocumentProjection(editor)).toBeNull();
+    expect(snapshot).not.toHaveBeenCalled();
+    availability.and.returnValue({ available: true });
+    expect((await projection.getDocumentProjection(editor)).text).toContain("<div>fresh</div>");
+  });
+
   it("keeps HTML on both sides of PHP and hides tags inside PHP strings", async () => {
     const text = '<div class="before"><?php echo "<script>fake</script>"; ?>after</div>\r\n<p ti';
     const transformed = await project("text.html.php", text);

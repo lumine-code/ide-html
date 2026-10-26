@@ -28,6 +28,8 @@ The bundled completion data supplements the server with SVG and MathML markup, l
 
 PHP, Blade, and Markdown send only their markup to the HTML server while preserving document positions. Completion, hover and navigation remain available in that markup. Whole-document symbols and formatting stay with the host language; HTML document symbols are offered for HTML, EJS, ERB and Mustache buffers.
 
+Embedded projections enforce a 32 Mi UTF-16 source budget on every retry, including in the syntax worker. Source intervals are limited to 100000, syntax traversal to 1000000 nodes and 4096 levels; excess work fails explicitly without publishing a partial projection. Configured custom-data files are decoded incrementally up to 8 Mi UTF-16 units, with file identity and growth checks before returning their complete content.
+
 ## Services
 
 - `ide`: consumed to register the HTML adapter with the editor's language-server client.
